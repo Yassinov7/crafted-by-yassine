@@ -11,6 +11,10 @@ type Props = {
   };
 };
 
+export async function generateStaticParams() {
+  return [{ lang: 'en' }, { lang: 'ar' }];
+}
+
 export default async function Home({ params }: Props) {
   return (
     <main className="min-h-screen">
@@ -21,4 +25,3 @@ export default async function Home({ params }: Props) {
     </main>
   );
 }
-
