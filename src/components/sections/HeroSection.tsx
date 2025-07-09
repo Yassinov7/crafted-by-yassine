@@ -32,7 +32,7 @@ export default function HeroSection({ lang }: { lang: 'ar' | 'en' }) {
       {/* صورة أو عنصر مرئي دائماً ظاهر */}
       <div className="flex-1 flex justify-center md:justify-end">
         {/* يمكنك استبدال هذا العنصر بصورة حقيقية لاحقًا */}
-        <img src="/icon-192x192.png" className="w-40 h-40 sm:w-48 sm:h-48 bg-accent rounded-full shadow-xl border-4 border-text" />
+        <div className="w-40 h-40 sm:w-48 sm:h-48 bg-accent rounded-full shadow-xl border-4 border-text" />
       </div>
     </section>
     </FadeInSection>
