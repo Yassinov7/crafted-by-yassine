@@ -11,7 +11,7 @@ type Props = {
   };
 };
 
-export default function Home({ params }: Props) {
+export default async function Home({ params }: Props) {
   return (
     <main className="min-h-screen">
       <HeroSection lang={params.lang} />
