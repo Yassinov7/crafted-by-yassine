@@ -1,14 +1,14 @@
 {
-  "name": "Satellite Alrajaa",
-  "short_name": "ستلايت الرجاء",
-  "description": "كل خدمات الشاشات، الستلايت والكاميرات في الكويت.",
+  "name": "Crafted By Yassine",
+  "short_name": "Yassinov",
+  "description": "Made with love by Yassine",
   "lang": "ar",
   "start_url": "/",
+  "scope": "/ar/",
   "display": "standalone",
   "orientation": "portrait",
-  "theme_color": "#1D4ED8",
-  "background_color": "#F5FbFC",
-  "scope": "/",
+  "theme_color": "#f5fbfc",
+  "background_color": "#111111",
   "icons": [
     {
       "src": "/icon-192x192.png",
@@ -20,6 +20,5 @@
       "sizes": "512x512",
       "type": "image/png"
     }
-  ],
-  "dir": "rtl"
+  ]
 }

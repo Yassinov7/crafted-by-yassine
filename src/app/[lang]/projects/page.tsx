@@ -1,9 +1,17 @@
-import React from 'react'
+import Intro from '@/components/projects/Intro';
+import Technologies from '@/components/projects/Technologies';
+import ProjectsList from '@/components/projects/ProjectsList';
+import Extra from '@/components/projects/Extra';
 
-const page = () => {
+export default function ProjectsPage({ params }: { params: { lang: 'ar' | 'en' } }) {
+  const { lang } = params;
+
   return (
-    <div>page</div>
-  )
+    <main className="px-6 py-12 space-y-20 max-w-7xl mx-auto">
+      <Intro lang={lang} />
+      <Technologies lang={lang} />
+      <ProjectsList lang={lang} />
+      <Extra lang={lang} />
+    </main>
+  );
 }
-
-export default page

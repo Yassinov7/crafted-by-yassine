@@ -1,21 +1,43 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import { usePathname } from 'next/navigation';
 import clsx from 'clsx';
-
-type Section = {
-  id: string;
-  label: string;
-};
 
 type Props = {
   lang: 'ar' | 'en';
-  sections: Section[]; // 👈 تمرير الأقسام من الخارج
 };
 
-export default function NavLinks({ sections }: Props) {
+export default function NavLinks({ lang }: Props) {
+  const pathname = usePathname();
   const [active, setActive] = useState<string | null>(null);
 
+  // 1️⃣ تحديد الأقسام حسب الصفحة
+  const sections = (() => {
+    if (pathname?.includes('/projects')) {
+      return [
+        { id: 'overview', label: lang === 'ar' ? 'نظرة عامة' : 'Overview' },
+        { id: 'tech', label: lang === 'ar' ? 'التقنيات' : 'Technologies' },
+        { id: 'gallery', label: lang === 'ar' ? 'صور' : 'Gallery' },
+      ];
+    }
+
+    if (pathname?.includes('/blog')) {
+      return [
+        { id: 'articles', label: lang === 'ar' ? 'مقالات' : 'Articles' },
+        { id: 'tags', label: lang === 'ar' ? 'وسوم' : 'Tags' },
+      ];
+    }
+
+    // الصفحة الرئيسية
+    return [
+      { id: 'about', label: lang === 'ar' ? 'عنّي' : 'About' },
+      { id: 'projects', label: lang === 'ar' ? 'المشاريع' : 'Projects' },
+      { id: 'contact', label: lang === 'ar' ? 'تواصل' : 'Contact' },
+    ];
+  })();
+
+  // 2️⃣ منطق تمييز العنصر النشط
   useEffect(() => {
     const handleScroll = () => {
       for (const { id } of sections) {

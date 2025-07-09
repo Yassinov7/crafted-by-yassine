@@ -1,6 +1,6 @@
 {
-  "name": "satellite-alrajaa",
-  "version": "1.0.1",
+  "name": "creafted-by-yassine",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
@@ -24,10 +24,12 @@
     "clsx": "^2.1.1",
     "dompurify": "^3.2.6",
     "framer-motion": "^12.23.0",
+    "iconoir-react": "^7.11.0",
     "lucide-react": "^0.513.0",
     "next": "15.3.3",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "react-icons": "^5.5.0"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
