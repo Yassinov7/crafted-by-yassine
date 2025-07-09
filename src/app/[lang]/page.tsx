@@ -5,7 +5,13 @@ import AboutSection from '@/components/sections/AboutSection';
 import ProjectsSection from '@/components/sections/ProjectsSection';
 import ContactSection from '@/components/sections/ContactSection';
 
-export default function Home({ params }: { params: { lang: 'ar' | 'en' } }) {
+type Props = {
+  params: {
+    lang: 'ar' | 'en';
+  };
+};
+
+export default function Home({ params }: Props) {
   return (
     <main className="min-h-screen">
       <HeroSection lang={params.lang} />
@@ -15,3 +21,4 @@ export default function Home({ params }: { params: { lang: 'ar' | 'en' } }) {
     </main>
   );
 }
+
