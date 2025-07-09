@@ -1,10 +1,15 @@
 'use client';
 
-import Link from 'next/link';
+import { useParams } from 'next/navigation';
 import { motion } from 'framer-motion';
+import Link from 'next/link';
 import { ArrowLeft } from 'lucide-react';
 
 export default function NotFound() {
+  const params = useParams();
+  const lang = (params?.lang || 'en') as 'ar' | 'en';
+  const isAr = lang === 'ar';
+
   return (
     <div className="min-h-screen flex items-center justify-center px-6 bg-background text-text">
       <motion.div
@@ -28,15 +33,15 @@ export default function NotFound() {
           animate={{ opacity: 1 }}
           transition={{ delay: 0.3 }}
         >
-          الصفحة غير موجودة 😢
+          {isAr ? 'الصفحة غير موجودة 😢' : 'Page not found 😢'}
         </motion.p>
 
         <Link
-          href="/"
+          href={`/${lang}`}
           className="inline-flex items-center gap-2 px-4 py-2 rounded-xl border border-accent text-accent hover:bg-accent/10 transition"
         >
           <ArrowLeft className="w-4 h-4" />
-          العودة إلى الصفحة الرئيسية
+          {isAr ? 'العودة إلى الرئيسية' : 'Back to Home'}
         </Link>
       </motion.div>
     </div>
