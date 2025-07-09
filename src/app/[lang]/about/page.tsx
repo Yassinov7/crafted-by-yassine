@@ -1,10 +1,4 @@
-type Props = {
-  params: {
-    lang: 'ar' | 'en';
-  };
-};
-
-export default function AboutPage({ params }: Props) {
+export default function AboutPage({ params }: { params: { lang: 'ar' | 'en' } }) {
   const { lang } = params;
 
   return (

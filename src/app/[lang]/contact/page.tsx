@@ -1,10 +1,5 @@
-type Props = {
-  params: {
-    lang: 'ar' | 'en';
-  };
-};
 
-export default function ContactPage({ params }: Props) {
+export default function ContactPage({ params }: { params: { lang: 'ar' | 'en' } }) {
   const { lang } = params;
 
   return (
