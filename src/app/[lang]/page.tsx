@@ -1,5 +1,5 @@
 // src/app/[lang]/page.tsx
-
+import { Metadata } from 'next';
 import HeroSection from '@/components/sections/HeroSection';
 import AboutSection from '@/components/sections/AboutSection';
 import ProjectsSection from '@/components/sections/ProjectsSection';
@@ -13,6 +13,14 @@ type Props = {
 
 export async function generateStaticParams() {
   return [{ lang: 'en' }, { lang: 'ar' }];
+}
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  return {
+    title: params.lang === 'ar' ? 'الرئيسية' : 'Home',
+    description: params.lang === 'ar'
+      ? 'مرحبًا بك في موقعي الشخصي'
+      : 'Welcome to my personal portfolio',
+  };
 }
 
 export default async function Home({ params }: Props) {
