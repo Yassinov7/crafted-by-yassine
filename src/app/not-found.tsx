@@ -1,13 +1,13 @@
 'use client';
 
-import { useParams } from 'next/navigation';
+import { usePathname } from 'next/navigation';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { ArrowLeft } from 'lucide-react';
 
 export default function NotFound() {
-  const params = useParams();
-  const lang = (params?.lang || 'en') as 'ar' | 'en';
+  const pathname = usePathname();
+  const lang = pathname?.split('/')[1] === 'ar' ? 'ar' : 'en';
   const isAr = lang === 'ar';
 
   return (
