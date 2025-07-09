@@ -1,21 +1,43 @@
-@import "tailwindcss";
-@plugin "@tailwindcss/typography";
+/* src/app/globals.css */
 
+@import "tailwindcss";
 
 @theme {
-  --color-background: #F9FAFB;
-  --color-primary: #1D4ED8;
-  --color-secondary: #F59E42;
-  --color-accent: #FDBA74;
+  --color-background: #ffffff;
   --color-text: #111827;
+  --color-accent: #F59E42;
+  --color-primary: #1D4ED8;
+
+  --font-arabic: 'Noto Kufi Arabic', sans-serif;
+  --font-english: 'Poppins', sans-serif;
+}
+
+.dark {
+  --color-background: #111111;
+  --color-text: #ffffff;
 }
 
 body {
   background: var(--color-background);
   color: var(--color-text);
-  font-family: 'Noto Kufi Arabic', Arial, Helvetica, sans-serif;
-  direction: rtl;
+  transition: background 0.3s, color 0.3s;
 }
-.btn {
-  @apply text-sm px-2 py-1 border rounded bg-white hover:bg-gray-100;
+
+body.fade-out {
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+body.fade-in {
+  opacity: 1;
+  transition: opacity 0.3s ease-in-out;
+}
+
+
+.font-arabic {
+  font-family: var(--font-arabic);
+}
+
+.font-english {
+  font-family: var(--font-english);
 }
