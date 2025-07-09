@@ -14,7 +14,7 @@ export default function NotFound() {
     <section className="min-h-screen flex flex-col items-center justify-center px-6 text-center bg-background">
       {/* صورة توضيحية */}
       
-
+ 
       <h1 className="text-5xl font-extrabold text-primary mb-4">404</h1>
       <h2 className="text-2xl md:text-3xl font-bold text-text mb-3">
         الصفحة غير موجودة

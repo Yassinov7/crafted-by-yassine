@@ -1,16 +1,17 @@
 // src/app/[lang]/page.tsx
 
-import Button from '@/components/ui/Button';
+import HeroSection from '@/components/sections/HeroSection';
+import AboutSection from '@/components/sections/AboutSection';
+import ProjectsSection from '@/components/sections/ProjectsSection';
+import ContactSection from '@/components/sections/ContactSection';
 
 export default function Home({ params }: { params: { lang: 'ar' | 'en' } }) {
-  const isAr = params.lang === 'ar';
-
   return (
-    <main className="min-h-screen flex flex-col items-center justify-center gap-6">
-      <h1 className="text-3xl font-bold">
-        {isAr ? 'مرحبًا بك في موقعي' : 'Welcome to my website'}
-      </h1>
-      <Button>{isAr ? 'جرّب الزر' : 'Try the Button'}</Button>
+    <main className="min-h-screen">
+      <HeroSection lang={params.lang} />
+      <AboutSection lang={params.lang} />
+      <ProjectsSection lang={params.lang} />
+      <ContactSection lang={params.lang} />
     </main>
   );
 }
