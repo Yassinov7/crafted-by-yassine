@@ -22,7 +22,7 @@ export async function generateMetadata({
   };
 }
 
-export default async function Home({
+export default function Home({
   params,
 }: {
   params: { lang: 'ar' | 'en' };
