@@ -3,7 +3,12 @@ import Technologies from '@/components/projects/Technologies';
 import ProjectsList from '@/components/projects/ProjectsList';
 import Extra from '@/components/projects/Extra';
 
-export default function ProjectsPage({ params }: { params: { lang: 'ar' | 'en' } }) {
+type PageProps = {
+  params: {
+    lang: 'ar' | 'en';
+  };
+};
+export default function ProjectsPage({ params }: PageProps) {
   const { lang } = params;
 
   return (

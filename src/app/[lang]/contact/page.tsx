@@ -1,5 +1,10 @@
+type PageProps = {
+  params: {
+    lang: 'ar' | 'en';
+  };
+};
 
-export default function ContactPage({ params }: { params: { lang: 'ar' | 'en' } }) {
+export default function ContactPage({ params }: PageProps) {
   const { lang } = params;
 
   return (

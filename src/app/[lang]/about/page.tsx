@@ -1,4 +1,10 @@
-export default function AboutPage({ params }: { params: { lang: 'ar' | 'en' } }) {
+type PageProps = {
+  params: {
+    lang: 'ar' | 'en';
+  };
+};
+
+export default function AboutPage({ params }: PageProps) {
   const { lang } = params;
 
   return (
