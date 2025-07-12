@@ -12,6 +12,8 @@ type Props = {
   lang: 'ar' | 'en';
 };
 
+
+
 export default function MobileSidebar({ children, lang }: Props) {
   const [open, setOpen] = useState(false);
   const isAr = lang === 'ar';
