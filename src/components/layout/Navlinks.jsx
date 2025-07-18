@@ -13,9 +13,9 @@ export default function NavLinks({ lang }) {
   const sections = (() => {
     if (pathname?.includes('/projects')) {
       return [
-        { id: 'overview', label: lang === 'ar' ? 'نظرة عامة' : 'Overview' },
         { id: 'tech', label: lang === 'ar' ? 'التقنيات' : 'Technologies' },
-        { id: 'gallery', label: lang === 'ar' ? 'صور' : 'Gallery' },
+        { id: 'projects', label: lang === 'ar' ? 'المشاريع' : 'Projects' },
+        { id: 'extra', label: lang === 'ar' ? 'فلسفتي الخاصة' : 'My Philosophy' },
       ];
     }
 

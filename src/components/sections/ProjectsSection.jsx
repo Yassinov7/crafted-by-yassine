@@ -26,7 +26,7 @@ export default function ProjectsSection({ lang }) {
 
   return (
     <FadeInSection>
-      <section id="projects" className="w-full px-6 py-20 bg-muted/10 text-text max-w-7xl mx-auto">
+      <section id="projects" className="w-full px-6 py-20 bg-muted/10 text-text max-w-7xl mx-auto scroll-mt-20">
         <h2 className="text-3xl sm:text-4xl font-bold mb-10 text-center">
           {isAr ? 'مشاريعي' : 'My Projects'}
         </h2>

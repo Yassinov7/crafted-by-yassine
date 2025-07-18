@@ -2,22 +2,28 @@
 
 @theme {
   --color-background: #ffffff;
-  --color-text: #111827;
+  --color-text: #07100c;
   --color-accent: #F59E42;
   --color-primary: #1D4ED8;
-  --font-family: 'Poppins', sans-serif;
+  --font-family: 'El Messiri', sans-serif;
 }
 
-:dir(rtl) {
+:root {
+  --font-family: 'El Messiri', sans-serif;
+}
+
+html[dir="rtl"] {
   --font-family: 'Noto Kufi Arabic', sans-serif;
 }
-
+.font-logo {
+  --font-family: 'Anton', sans-serif;
+}
 html {
   scroll-behavior: smooth;
 }
 
 .dark {
-  --color-background: #111111;
+  --color-background: #07100c;
   --color-text: #ffffff;
 }
 

@@ -2,13 +2,12 @@
   "name": "Crafted By Yassine",
   "short_name": "Yassinov",
   "description": "Made with love by Yassine",
-  "lang": "ar",
-  "start_url": "/",
+  "start_url": "/ar/",
   "scope": "/ar/",
   "display": "standalone",
   "orientation": "portrait",
   "theme_color": "#f5fbfc",
-  "background_color": "#111111",
+  "background_color": "#07100c",
   "icons": [
     {
       "src": "/icon-192x192.png",

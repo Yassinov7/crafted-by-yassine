@@ -34,7 +34,7 @@ export default function Technologies({ lang }) {
   const title = isAr ? 'التقنيات التي أستخدمها' : 'Technologies I Use';
 
   return (
-    <section className="py-16 max-w-6xl mx-auto px-6">
+    <section className="py-16 max-w-6xl mx-auto px-6 scroll-mt-20" id="tech">
       <motion.h2
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}

@@ -27,21 +27,26 @@ export default function MobileSidebar({ children, lang }) {
             animate={{ x: 0 }}
             exit={{ x: isAr ? '-100%' : '100%' }}
             transition={{ duration: 0.3 }}
-            className={`fixed top-0 ${isAr ? 'left-0' : 'right-0'} w-3/4 h-full bg-background text-text z-[100] shadow-lg p-6 space-y-6`}
+            className={`fixed top-0 ${isAr ? 'left-0' : 'right-0'} w-1/2 h-full bg-background text-text z-[100] shadow-lg p-6 space-y-6`}
           >
             {/* زر إغلاق */}
-            <div className="flex justify-end">
+            <div className="flex justify-between">
+              <h3> {isAr ? ' روابط الأنتقال ' : 'Nav Links'} </h3>
               <X className="w-6 h-6 cursor-pointer" onClick={() => setOpen(false)} />
             </div>
 
             {/* الروابط */}
             <nav className="flex flex-col gap-4 text-lg font-medium">
-              <Link href={`/${lang}/about`} className="hover:text-accent">
-                {lang === 'ar' ? 'من أنا' : 'About'}
+              <Link href={`/${lang}/`} className="hover:text-accent">
+                {isAr ? 'الرئيسية' : 'Home'}
               </Link>
               <Link href={`/${lang}/projects`} className="hover:text-accent">
                 {lang === 'ar' ? 'مشاريعي' : 'Projects'}
               </Link>
+              <Link href={`/${lang}/about`} className="hover:text-accent">
+                {lang === 'ar' ? 'من أنا' : 'About'}
+              </Link>
+              
               <Link href={`/${lang}/contact`} className="hover:text-accent">
                 {lang === 'ar' ? 'تواصل' : 'Contact'}
               </Link>

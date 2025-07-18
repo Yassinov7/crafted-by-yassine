@@ -4,7 +4,7 @@ export default function AboutSection({ lang }) {
   const isAr = lang === 'ar';
 
   return (
-    <section id="about" className="w-full px-6 py-20 max-w-7xl mx-auto text-center space-y-6">
+    <section id="about" className="w-full px-6 py-20 max-w-7xl mx-auto text-center space-y-6 scroll-mt-20">
       <h2 className="text-3xl font-bold">
         {isAr ? 'عنّي' : 'About Me'}
       </h2>

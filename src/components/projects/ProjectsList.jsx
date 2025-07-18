@@ -18,7 +18,7 @@ export default function ProjectsList({ lang }) {
   const isAr = lang === 'ar';
 
   return (
-    <section className="py-16 max-w-6xl mx-auto px-6" id="projects">
+    <section className="py-16 max-w-6xl mx-auto px-6 scroll-mt-20" id="projects">
       <h2 className="text-2xl font-bold mb-10 text-center">{isAr ? 'المشاريع' : 'Projects'}</h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
         {projects.map((project) => (

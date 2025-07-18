@@ -18,7 +18,7 @@ export default function Extra({ lang }) {
   const workflowTitle = isAr ? '🔄 سير العمل' : '🔄 Workflow';
 
   return (
-    <section className="py-16 max-w-4xl mx-auto px-6 space-y-10">
+    <section className="py-16 max-w-4xl mx-auto px-6 space-y-10 scroll-mt-20" id="extra">
       {/* Philosophy */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
