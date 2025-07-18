@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 @theme {
-  --color-background: #ffffff;
+  --color-background: #f5fcfb;
   --color-text: #07100c;
   --color-accent: #F59E42;
   --color-primary: #1D4ED8;
@@ -15,9 +15,11 @@
 html[dir="rtl"] {
   --font-family: 'Noto Kufi Arabic', sans-serif;
 }
+
 .font-logo {
   --font-family: 'Anton', sans-serif;
 }
+
 html {
   scroll-behavior: smooth;
 }
@@ -59,5 +61,38 @@ body.fade-in {
 
   .animate-fade-in {
     animation: fade-in 0.5s ease-out forwards;
+  }
+
+  @keyframes spin-slow {
+    0% {
+      transform: rotate(0deg);
+    }
+
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  .animate-spin-slow {
+    animation: spin-slow 12s linear infinite;
+  }
+
+  @keyframes spin-smooth {
+    from {
+      transform: rotate(0deg);
+    }
+
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  .animate-spin-smooth {
+    animation: spin-smooth 20s linear infinite;
+  }
+
+  .group:hover .animate-spin-smooth,
+  .group:active .animate-spin-smooth {
+    animation-play-state: paused;
   }
 }

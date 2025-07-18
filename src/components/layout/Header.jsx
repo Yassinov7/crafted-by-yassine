@@ -1,11 +1,23 @@
+'use client';
+
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import LangSwitch from '@/components/ui/LangSwitch';
 import ThemeToggle from '@/components/ui/ThemeToggle';
 import MobileSidebar from '@/components/layout/MobileSidebar';
 import { Menu } from 'lucide-react';
+import clsx from 'clsx';
 
 export default function Header({ lang }) {
   const isAr = lang === 'ar';
+  const pathname = usePathname();
+
+  const navLinks = [
+    { href: `/${lang}/`, label: isAr ? 'الرئيسية' : 'Home' },
+    { href: `/${lang}/projects`, label: isAr ? 'مشاريعي' : 'Projects' },
+    { href: `/${lang}/about`, label: isAr ? 'من أنا' : 'About' },
+    { href: `/${lang}/contact`, label: isAr ? 'تواصل' : 'Contact' },
+  ];
 
   return (
     <header className="h-16 w-full px-6 py-4 border-b bg-background text-text sticky top-0 z-50">
@@ -15,29 +27,29 @@ export default function Header({ lang }) {
           Crafted by Yassine
         </Link>
 
-        {/* الروابط - تظهر فقط في الشاشات الكبيرة */}
+        {/* Navigation Links */}
         <nav className="hidden md:flex gap-6 text-sm font-medium">
-          <Link href={`/${lang}/`} className="hover:text-accent">
-            {isAr ? 'الرئيسية' : 'Home'}
-          </Link>
-          <Link href={`/${lang}/about`} className="hover:text-accent">
-            {isAr ? 'من أنا' : 'About'}
-          </Link>
-          <Link href={`/${lang}/projects`} className="hover:text-accent">
-            {isAr ? 'مشاريعي' : 'Projects'}
-          </Link>
-          <Link href={`/${lang}/contact`} className="hover:text-accent">
-            {isAr ? 'تواصل' : 'Contact'}
-          </Link>
+          {navLinks.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              className={clsx(
+                'transition-colors hover:text-accent',
+                pathname === link.href && 'text-accent'
+              )}
+            >
+              {link.label}
+            </Link>
+          ))}
         </nav>
 
-        {/* اللغة والثيم - تظهر في الشاشات الكبيرة */}
+        {/* Language + Theme */}
         <div className="hidden md:flex items-center gap-3">
           <LangSwitch currentLang={lang} />
           <ThemeToggle />
         </div>
 
-        {/* زر القائمة الجانبية - يظهر فقط في الشاشات الصغيرة */}
+        {/* Mobile Menu */}
         <div className="md:hidden">
           <MobileSidebar lang={lang}>
             <Menu className="w-6 h-6 cursor-pointer" />

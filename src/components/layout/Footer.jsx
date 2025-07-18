@@ -23,7 +23,7 @@ export default function Footer({ lang }) {
       <div className="max-w-4xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
         
         {/* شعار الموقع */}
-        <div className="tracking-wide text-xl" style={{ fontFamily: 'font-logo' }}>
+        <div className="tracking-wide text-xl font-bold" style={{ fontFamily: 'font-logo' }}>
           Crafted by Yassine
         </div>
 
