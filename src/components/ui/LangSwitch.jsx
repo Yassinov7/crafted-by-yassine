@@ -22,7 +22,7 @@ export default function LangSwitch({ currentLang }) {
     <button
       onClick={switchLang}
       className={`
-        flex items-center gap-2 text-sm px-3 py-1.5 rounded-full w-25
+        flex items-center gap-2 text-sm px-3 py-1.5 rounded-full w-22
         border border-zinc-300 dark:border-zinc-600
         bg-zinc-100 text-zinc-800
         dark:bg-zinc-800 dark:text-zinc-100

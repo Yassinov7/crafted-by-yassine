@@ -9,10 +9,10 @@ import Link from 'next/link';
 
 export default function MobileSidebar({ children, lang }) {
   const [open, setOpen] = useState(false);
-  const isAr = lang === 'ar';
   const sidebarRef = useRef(null);
+  const isAr = lang === 'ar';
 
-  // منع التمرير
+  // 🛑 منع التمرير عند الفتح
   useEffect(() => {
     if (open) {
       document.body.classList.add('overflow-hidden');
@@ -22,65 +22,100 @@ export default function MobileSidebar({ children, lang }) {
     return () => document.body.classList.remove('overflow-hidden');
   }, [open]);
 
-  // إغلاق عند الضغط خارج القائمة
+  // ❌ الإغلاق عند الضغط خارج القائمة
   useEffect(() => {
     const handleClickOutside = (e) => {
       if (sidebarRef.current && !sidebarRef.current.contains(e.target)) {
         setOpen(false);
       }
     };
+
     if (open) document.addEventListener('mousedown', handleClickOutside);
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, [open]);
 
   return (
     <>
+      {/* زر الفتح */}
       <div onClick={() => setOpen(true)}>{children}</div>
 
+      {/* القائمة */}
       <AnimatePresence>
         {open && (
           <>
-            {/* الخلفية المظللة */}
+            {/* خلفية مظللة */}
             <motion.div
+              key="overlay"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="fixed inset-0 bg-black/50 z-[90]"
+              className="fixed inset-0 bg-black/50 z-40"
             />
 
             {/* القائمة الجانبية */}
             <motion.aside
+              key="sidebar"
               ref={sidebarRef}
               initial={{ x: isAr ? '-100%' : '100%' }}
               animate={{ x: 0 }}
               exit={{ x: isAr ? '-100%' : '100%' }}
               transition={{ duration: 0.3 }}
-              className={`fixed top-0 ${isAr ? 'left-0' : 'right-0'} w-1/2 h-full bg-background text-text z-[100] shadow-lg p-6 space-y-6`}
+              className={`fixed top-0 ${isAr ? 'left-0' : 'right-0'} w-3/4 max-w-sm h-full bg-background text-text z-50 shadow-xl p-6 space-y-8`}
             >
-              <div className="flex justify-between">
-                <h3>{isAr ? ' روابط الأنتقال ' : 'Nav Links'}</h3>
+              {/* رأس القائمة */}
+              <div className="flex justify-between items-center">
+                <h3 className="text-lg font-bold">{isAr ? 'روابط التنقل' : 'Navigation'}</h3>
                 <X className="w-6 h-6 cursor-pointer" onClick={() => setOpen(false)} />
               </div>
 
-              <nav className="flex flex-col gap-4 text-lg font-medium">
-                <Link href={`/${lang}/`} className="hover:text-accent">
-                  {isAr ? 'الرئيسية' : 'Home'}
-                </Link>
-                <Link href={`/${lang}/projects`} className="hover:text-accent">
-                  {isAr ? 'مشاريعي' : 'Projects'}
-                </Link>
-                <Link href={`/${lang}/about`} className="hover:text-accent">
-                  {isAr ? 'من أنا' : 'About'}
-                </Link>
-                <Link href={`/${lang}/contact`} className="hover:text-accent">
-                  {isAr ? 'تواصل' : 'Contact'}
-                </Link>
-              </nav>
+              {/* روابط التنقل */}
+              <motion.nav
+                initial="hidden"
+                animate="visible"
+                variants={{
+                  hidden: {},
+                  visible: {
+                    transition: {
+                      staggerChildren: 0.1
+                    }
+                  }
+                }}
+                className="flex flex-col gap-4 text-base font-medium"
+              >
+                {[
+                  { label: isAr ? 'الرئيسية' : 'Home', href: `/${lang}/` },
+                  { label: isAr ? 'مشاريعي' : 'Projects', href: `/${lang}/projects` },
+                  { label: isAr ? 'من أنا' : 'About', href: `/${lang}/about` },
+                  { label: isAr ? 'تواصل' : 'Contact', href: `/${lang}/contact` },
+                ].map((item) => (
+                  <motion.div
+                    key={item.href}
+                    variants={{
+                      hidden: { opacity: 0, x: isAr ? -20 : 20 },
+                      visible: { opacity: 1, x: 0 }
+                    }}
+                  >
+                    <Link
+                      href={item.href}
+                      className="hover:text-accent"
+                      onClick={() => setOpen(false)}
+                    >
+                      {item.label}
+                    </Link>
+                  </motion.div>
+                ))}
+              </motion.nav>
 
-              <div className="flex flex-col gap-4">
+              {/* خيارات أخرى */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.4 }}
+                className="flex flex-col gap-4"
+              >
                 <ThemeToggle />
                 <LangSwitch currentLang={lang} />
-              </div>
+              </motion.div>
             </motion.aside>
           </>
         )}
