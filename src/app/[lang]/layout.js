@@ -31,9 +31,7 @@ export default function LangLayout({ children, params }) {
 
   return (
     <html lang={params.lang} dir={isArabic ? 'rtl' : 'ltr'}>
-      <body
-       className={`${logoFont.variable} ${isArabic ? arabicFont.variable : englishFont.variable}`}
-       >
+      <body className={`${logoFont.variable} ${isArabic ? arabicFont.variable : englishFont.variable}`}>
         <CustomHead lang={params.lang} />
         <TransitionWrapper />
         <Header lang={params.lang} />
