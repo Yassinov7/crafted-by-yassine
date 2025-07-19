@@ -6,7 +6,7 @@ import TransitionWrapper from '@/components/layout/TransitionWrapper';
 import NavLinks from '@/components/layout/Navlinks';
 import CustomHead from '@/components/layout/CustomHead';
 import Footer from '@/components/layout/Footer';
-
+import { Toaster } from 'react-hot-toast';
 const arabicFont = Noto_Kufi_Arabic({
   subsets: ['arabic'],
   display: 'swap',
@@ -38,6 +38,7 @@ export default function LangLayout({ children, params }) {
         <div className="px-6 py-2 border-b bg-background text-text sticky top-[64px] z-40">
           <NavLinks lang={params.lang} />
         </div>
+        <Toaster position="top-center" />
         {children}
         <Footer lang={params.lang} />
       </body>
