@@ -1,9 +1,10 @@
-import HeroSection from '@/components/sections/HeroSection';
-import AboutSection from '@/components/sections/AboutSection';
-import ProjectsSection from '@/components/sections/ProjectsSection';
-import ContactSection from '@/components/sections/ContactSection';
+import HeroSection from '@/components/homepage/HeroSection';
+import AboutSection from '@/components/homepage/AboutSection';
+import ProjectsSection from '@/components/homepage/ProjectsSection';
+import ContactSection from '@/components/homepage/ContactSection';
+import TimelineSection from '@/components/homepage/TimelineSection';
+import SkillsSection from '@/components/homepage/SkillsSection';
 import SectionDivider from '@/components/layout/SectionDivider';
-
 export async function generateStaticParams() {
   return [{ lang: 'en' }, { lang: 'ar' }];
 }
@@ -13,7 +14,7 @@ export async function generateMetadata({ params }) {
   const isArabic = lang === 'ar';
 
   return {
-    title: isArabic ? 'الصفحة الرئيسية' : 'Home Page',
+    title: isArabic ? 'الصفحة الرئيسية' : 'HomePage',
     description: isArabic
       ? 'الصفحة الرئيسية للموقع الشخصي الخاص ب م.محمد ياسين'
       : 'Home Page for the portfolio off Eng. Mohammad Yassine',
@@ -31,7 +32,20 @@ export default function Home({
       <SectionDivider/>
       <ProjectsSection lang={params.lang} />
       <SectionDivider/>
+      <TimelineSection lang={params.lang} />
+      <SectionDivider/>
+      <SkillsSection lang={params.lang} />
+      <SectionDivider/>
       <ContactSection lang={params.lang} />
     </main>
   );
 }
+// /components
+//   └─ homepage/
+//       ├─ Hero.jsx
+//       ├─ AboutPreview.jsx
+//       ├─ ProjectsPreview.jsx
+//       ├─ Achievements.jsx
+//       ├─ LearningJourney.jsx
+//       ├─ Skills.jsx
+//       ├─ ContactForm.jsx

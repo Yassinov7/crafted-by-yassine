@@ -5,7 +5,7 @@ export default function Footer({ lang }) {
   const isAr = lang === 'ar';
 
   const links = [
-    { href: `/${lang}/`, label: isAr ? 'الصفحة الرئيسية' : 'Home Page' },
+    { href: `/${lang}/`, label: isAr ? 'الصفحة الرئيسية' : 'Home' },
     { href: `/${lang}/projects`, label: isAr ? 'مشاريعي' : 'Projects' },
     { href: `/${lang}/about`, label: isAr ? 'عنّي' : 'About' },
     { href: `/${lang}/contact`, label: isAr ? 'تواصل' : 'Contact' },

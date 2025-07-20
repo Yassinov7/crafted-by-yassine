@@ -109,6 +109,12 @@ body.fade-in {
 
 :root {
   --font-family: 'El Messiri', sans-serif;
+  --scrollbar-track: #07100c;
+  /* لون الخلفية (dark background) */
+  --scrollbar-thumb: #F59E42;
+  /* لون المسكة (accent orange) */
+  --scrollbar-thumb-hover: #FDBA74;
+  /* عند التمرير */
 }
 
 html[dir="rtl"] {
@@ -198,10 +204,33 @@ body.fade-in {
 
 ::selection {
   background-color: var(--color-accent);
-  color: #f5fcfb; /* dark text */
+  color: #f5fcfb;
+  /* dark text */
 }
 
 .dark ::selection {
   background-color: var(--color-accent);
-  color: #07100c; /* light text */
+  color: #07100c;
+  /* light text */
+}
+
+/* Scrollbar Styles */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-accent);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--color-background);
+  border-radius: 10px;
+  transition: background-color 0.8s ease-in-out;
+}
+
+/* عند التحويم */
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--color-text);
 }
