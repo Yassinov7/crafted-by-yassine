@@ -28,9 +28,12 @@ export default function NavLinks({ lang }) {
 
     // الصفحة الرئيسية
     return [
+      { id: 'hero', label: lang === 'ar' ? '#' : '#' },
       { id: 'about', label: lang === 'ar' ? 'عنّي' : 'About' },
-      { id: 'projects', label: lang === 'ar' ? 'المشاريع' : 'Projects' },
-      { id: 'contact', label: lang === 'ar' ? 'تواصل' : 'Contact' },
+      { id: 'projects', label: lang === 'ar' ? 'مشاريعي' : 'Projects' },
+      { id: 'timeline', label: lang === 'ar' ? 'رحلتي' : 'Timeline' },
+      { id: 'skills', label: lang === 'ar' ? 'مهاراتي' : 'Skills' },
+      { id: 'contact', label: lang === 'ar' ? 'تواصل معي' : 'Contact' },
     ];
   })();
 

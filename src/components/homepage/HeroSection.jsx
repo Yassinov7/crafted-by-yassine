@@ -8,7 +8,9 @@ export default function HeroSection({ lang }) {
 
   return (
     <FadeInSection>
-      <section className="w-full px-6 py-20 flex flex-col-reverse md:flex-row items-center justify-between gap-10 max-w-7xl mx-auto">
+      <section 
+      id="hero"
+      className="w-full px-6 py-20 flex flex-col-reverse md:flex-row items-center justify-between gap-10 max-w-7xl mx-auto">
         {/* النصوص والأزرار */}
         <div className="flex-1 text-center md:text-start space-y-6">
           <h1 className="text-4xl sm:text-5xl font-bold leading-tight">

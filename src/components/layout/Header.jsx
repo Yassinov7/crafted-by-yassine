@@ -23,9 +23,41 @@ export default function Header({ lang }) {
     <header className="h-16 w-full px-6 py-4 border-b bg-background text-text sticky top-0 z-50">
       <div className="flex justify-between items-center">
         {/* Logo */}
-        <Link href={`/${lang}`} className="text-xl font-bold tracking-wide" style={{ fontFamily: 'font-logo' }}>
-          Crafted by Yassine
+        <Link href={`/${lang}`} className="flex items-center gap-2 group">
+          <span
+            className="text-xl font-bold tracking-wide group-hover:text-accent transition-colors"
+            style={{ fontFamily: 'font-logo' }}
+          >
+            Crafted by Yassine
+          </span>
+
+          <div className="border border-accent transition-transform group-hover:scale-105">
+            <svg width="36" height="24" viewBox="0 0 54 36" xmlns="http://www.w3.org/2000/svg">
+              <rect width="54" height="12" fill="#009639" />
+              <rect y="12" width="54" height="12" fill="#ffffff" />
+              <rect y="24" width="54" height="12" fill="#000000" />
+              <g transform="translate(8, 13)">
+                <polygon
+                  points="5,0 6.5,3.5 10,4 7,6.5 8,10 5,8 2,10 3,6.5 0,4 3.5,3.5"
+                  fill="#D72828"
+                />
+              </g>
+              <g transform="translate(23, 13)">
+                <polygon
+                  points="5,0 6.5,3.5 10,4 7,6.5 8,10 5,8 2,10 3,6.5 0,4 3.5,3.5"
+                  fill="#D72828"
+                />
+              </g>
+              <g transform="translate(38, 13)">
+                <polygon
+                  points="5,0 6.5,3.5 10,4 7,6.5 8,10 5,8 2,10 3,6.5 0,4 3.5,3.5"
+                  fill="#D72828"
+                />
+              </g>
+            </svg>
+          </div>
         </Link>
+
 
         {/* Navigation Links */}
         <nav className="hidden md:flex gap-6 text-sm font-medium">
@@ -57,5 +89,14 @@ export default function Header({ lang }) {
         </div>
       </div>
     </header>
+  );
+}
+
+function Star() {
+  return (
+    <polygon
+      points="5,0 6.5,3.5 10,4 7,6.5 8,10 5,8 2,10 3,6.5 0,4 3.5,3.5"
+      fill="#D72828"
+    />
   );
 }
