@@ -150,7 +150,7 @@ export default function AboutSection({ lang }) {
   }, [currentCharIndex, currentLineIndex, lines]);
 
   return (
-    <section className="w-full px-6 py-24 max-w-5xl mx-auto scroll-mt-20">
+    <section id="about" className="w-full px-6 py-24 max-w-5xl mx-auto scroll-mt-20">
       <FadeInSection>
         <h2 className="text-3xl sm:text-4xl font-bold text-center mb-4">
           {isAr ? 'عنّي' : 'About Me'}
