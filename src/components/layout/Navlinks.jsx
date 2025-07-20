@@ -31,7 +31,7 @@ export default function NavLinks({ lang }) {
       { id: 'hero', label: lang === 'ar' ? '#' : '#' },
       { id: 'about', label: lang === 'ar' ? 'عنّي' : 'About' },
       { id: 'projects', label: lang === 'ar' ? 'مشاريعي' : 'Projects' },
-      { id: 'timeline', label: lang === 'ar' ? 'رحلتي' : 'Timeline' },
+      { id: 'timeline', label: lang === 'ar' ? 'رحلتي' : 'Journey' },
       { id: 'skills', label: lang === 'ar' ? 'مهاراتي' : 'Skills' },
       { id: 'contact', label: lang === 'ar' ? 'تواصل معي' : 'Contact' },
     ];
