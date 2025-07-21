@@ -153,7 +153,7 @@ export default function AboutSection({ lang }) {
     <section id="about" className="w-full px-6 py-24 max-w-5xl mx-auto scroll-mt-20">
       <FadeInSection>
         <h2 className="text-3xl sm:text-4xl font-bold text-center mb-4">
-          {isAr ? 'عنّي' : 'About Me'}
+          {isAr ? 'من أنا؟' : 'Who Am I?'}
         </h2>
 
         <div className="w-20 h-1 mx-auto bg-accent rounded-full mb-10" />
@@ -170,7 +170,7 @@ export default function AboutSection({ lang }) {
           </div>
 
           <span className="text-white block mb-2">
-            {isAr ? '// تعريفي الشخصي' : '// Personal Introduction'}
+            {isAr ? '// مقدمة شخصية' : '// Personal Introduction'}
           </span>
 
           {displayedLines.map((line, idx) => (

@@ -29,7 +29,7 @@ export default function NavLinks({ lang }) {
     // الصفحة الرئيسية
     return [
       { id: 'hero', label: lang === 'ar' ? '#' : '#' },
-      { id: 'about', label: lang === 'ar' ? 'عنّي' : 'About' },
+      { id: 'about', label: lang === 'ar' ? 'من أنا؟ ': 'Who Am I?' },
       { id: 'projects', label: lang === 'ar' ? 'مشاريعي' : 'Projects' },
       { id: 'timeline', label: lang === 'ar' ? 'رحلتي' : 'Journey' },
       { id: 'skills', label: lang === 'ar' ? 'مهاراتي' : 'Skills' },
