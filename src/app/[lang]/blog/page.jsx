@@ -1,6 +1,5 @@
 // src/app/[lang]/blog/page.jsx
 
-import CustomHead from '@/components/layout/CustomHead';
 import BlogList from '@/components/blog/BlogList';
 import FadeInSection from '@/components/motion/FadeInSection';
 
@@ -33,15 +32,7 @@ export default async function BlogPage({ params }) {
 
     return (
         <>
-            <CustomHead
-                title={isAr ? 'المدونة | ياسينوف' : 'Blog | Yassinov'}
-                description={
-                    isAr
-                        ? 'مقالات تقنية، تجاربي في البرمجة، ونصائح للمطورين'
-                        : 'Technical articles, coding journeys, and developer tips.'
-                }
-                lang={lang}
-            />
+            
 
             <section className="w-full px-6 py-24 max-w-7xl mx-auto scroll-mt-20">
                 <FadeInSection>
