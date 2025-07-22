@@ -28,7 +28,7 @@ export default function Header({ lang }) {
             className="text-xl font-bold tracking-wide group-hover:text-accent transition-colors"
             style={{ fontFamily: 'font-logo' }}
           >
-            Crafted by Yassine
+            Yassinov.dev
           </span>
 
           <div className="border border-accent transition-transform group-hover:scale-105">
