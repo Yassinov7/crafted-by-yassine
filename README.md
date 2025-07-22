@@ -1,36 +1,89 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 🧠 Crafted By Yassine – Portfolio Website
 
-## Getting Started
+![banner](https://your-image-link/banner.png)
 
-First, run the development server:
+> 🚀 A modern, responsive, and animated portfolio built using **Next.js**, **Tailwind CSS**, and **Supabase**, showcasing my projects, skills, certificates, and personal journey – in both English and Arabic!
+
+---
+
+## 📌 Features
+
+- 🌍 **Multilingual** support: English & Arabic (RTL)
+- 🎨 **Dark / Light Theme** toggle
+- 🧩 Interactive animations with **Framer Motion**
+- 📁 Dynamic data from **Supabase**
+- 🖼️ Certificate gallery with modals
+- ✍️ Blog section using TipTap editor
+- 📬 Contact form powered by **EmailJS**
+- ⚙️ Optimized for SEO + Sitemap generation
+- 💡 Clean and modular code structure
+
+---
+
+## 🧪 Tech Stack
+
+| Frontend        | Backend        | Styling        | Others           |
+|----------------|----------------|----------------|------------------|
+| Next.js 15+     | Supabase       | Tailwind CSS 4 | EmailJS          |
+| React.js        | Supabase Auth  | CSS Variables  | Framer Motion    |
+| App Router      | RLS Policies   | RTL Support    | React Hot Toast  |
+
+---
+
+## 🖼️ Screenshots
+
+| Light Mode | Dark Mode |
+|------------|-----------|
+| ![light](https://your-image-link/light.png) | ![dark](https://your-image-link/dark.png) |
+
+---
+
+## 📚 Pages Structure
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+/            → Home Page
+/projects    → Projects Showcase
+/about       → Bio, Journey, Certificates
+/contact     → Contact Form + Links
+/blog        → Posts (dynamic)
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## ⚙️ Run Locally
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+git clone https://github.com/Yassinov7/portfolio.git
+cd portfolio
+npm install
+npm run dev
+```
 
-## Learn More
+> ✅ You’ll need `.env.local` with your Supabase keys & EmailJS IDs.
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🌐 Live Demo
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+👉 [yassinov.dev](https://yassinov.dev)
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 📬 Contact
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- 📧 Email: `02m.yassine@gmail.com`
+- 💼 LinkedIn: [Mohammed Yassine](https://linkedin.com/in/mohammed-yassine-70499921a)
+- 📱 WhatsApp: [+963 935 787 445](https://wa.me/963935787445)
+- 🌐 Instagram: [@mhmmdyassine](https://instagram.com/mhmmdyassine)
+
+---
+
+## 📝 License
+
+This project is open-source and available under the [MIT License](LICENSE).
+
+---
+
+## 💖 Crafted with passion by `@Yassinov`
+
+> _“Code is poetry – and this portfolio is my voice.”_
