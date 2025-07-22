@@ -33,6 +33,13 @@ export default function NavLinks({ lang }) {
         { id: 'goal', label: lang === 'ar' ? 'رؤيتي' : 'My Vision' },
       ];
     }
+    if (pathname?.includes('/contact')) {
+      return [
+        { id: 'contact-intro', label: lang === 'ar' ? '#' : '#' },
+        { id: 'contact-form', label: lang === 'ar' ? 'التواصل' : 'Contact' },
+        
+      ];
+    }
 
     // الصفحة الرئيسية
     return [

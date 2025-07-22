@@ -1,9 +1,14 @@
+import ContactIntroSection from '@/components/contact/ContactIntroSection';
+import ContactSectionForm from '@/components/contact/ContactSectionForm';
+import SectionDivider from '@/components/layout/SectionDivider'
 export default function ContactPage({ params }) {
   const { lang } = params;
 
   return (
-    <main className="min-h-screen">
-      <h1>{lang === 'ar' ? 'تواصل معنا' : 'Contact Us'}</h1>
-    </main>
+    <>
+      <ContactIntroSection lang={lang}/>
+      <SectionDivider/>
+      <ContactSectionForm lang={lang}/>
+    </>
   );
 }
