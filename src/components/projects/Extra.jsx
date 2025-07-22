@@ -27,7 +27,9 @@ export default function Extra({ lang }) {
         transition={{ duration: 0.5 }}
         className={clsx('text-center space-y-4', isAr ? 'rtl' : 'ltr')}
       >
-        <h2 className="text-2xl font-bold">{sectionTitle}</h2>
+        <h2 className="text-3xl sm:text-4xl font-bold text-center mb-4">{sectionTitle}</h2>
+        <div className="w-20 h-1 mx-auto bg-accent rounded-full mb-10"></div>
+        
         <p className="text-lg max-w-2xl mx-auto">{philosophy}</p>
       </motion.div>
       

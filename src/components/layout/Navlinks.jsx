@@ -25,6 +25,14 @@ export default function NavLinks({ lang }) {
         { id: 'tags', label: lang === 'ar' ? 'وسوم' : 'Tags' },
       ];
     }
+    if (pathname?.includes('/about')) {
+      return [
+        { id: 'title', label: lang === 'ar' ? 'مقدمة' : 'Introduction' },
+        { id: 'timeline', label: lang === 'ar' ? 'رحلتي' : 'My Story' },
+        { id: 'cert', label: lang === 'ar' ? 'شهاداتي' : 'Certifications' },
+        { id: 'goal', label: lang === 'ar' ? 'رؤيتي' : 'My Vision' },
+      ];
+    }
 
     // الصفحة الرئيسية
     return [

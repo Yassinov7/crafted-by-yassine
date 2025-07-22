@@ -194,7 +194,7 @@ export default function TimelineSection({ lang }) {
             </FadeInSection>
 
             <div
-                className={`relative border-s-2 border-muted pl-6 space-y-12 ${isAr ? 'rtl text-right' : 'ltr text-left'
+                className={`relative border-s-2 border-muted space-y-12 ${isAr ? 'rtl text-right' : 'ltr text-left'
                     }`}
             >
                 {timelineItems.map((item, index) => (
