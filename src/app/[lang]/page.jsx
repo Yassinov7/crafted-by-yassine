@@ -5,21 +5,29 @@ import ContactSection from '@/components/homepage/ContactSection';
 import TimelineSection from '@/components/homepage/TimelineSection';
 import SkillsSection from '@/components/homepage/SkillsSection';
 import SectionDivider from '@/components/layout/SectionDivider';
-export async function generateStaticParams() {
-  return [{ lang: 'en' }, { lang: 'ar' }];
-}
+
 
 export async function generateMetadata({ params }) {
-  const lang = params?.lang ?? 'en'; //
-  const isArabic = lang === 'ar';
-
+  const lang = params?.lang || 'en';
+  const isAr = lang === 'ar';
   return {
-    title: isArabic ? 'الصفحة الرئيسية' : 'HomePage',
-    description: isArabic
+    title: isAr ? 'الصفحة الرئيسية | ياسينوف' : 'Home | Yassinov',
+    description: isAr
       ? 'الصفحة الرئيسية للموقع الشخصي الخاص ب م.محمد ياسين'
-      : 'Home Page for the portfolio off Eng. Mohammad Yassine',
+      : 'Homepage of Eng. Mohammad Yassine’s portfolio',
+    openGraph: {
+      title: isAr ? 'بورتفوليو محمد ياسين' : 'Mohammad Yassine Portfolio',
+      description: isAr
+        ? 'تعرف على مشاريعي ومهاراتي'
+        : 'Explore my projects and skills',
+      url: 'https://crafted-by-yassine.vercel.app/',
+      images: [{ url: '/preview.png', width: 800, height: 600 }],
+      locale: isAr ? 'ar_AR' : 'en_US',
+      type: 'website',
+    },
   };
 }
+
 
 export default function Home({
   params,
@@ -27,15 +35,15 @@ export default function Home({
   return (
     <main className="min-h-screen">
       <HeroSection lang={params.lang} />
-      <SectionDivider/>
+      <SectionDivider />
       <AboutSection lang={params.lang} />
-      <SectionDivider/>
+      <SectionDivider />
       <ProjectsSection lang={params.lang} />
-      <SectionDivider/>
+      <SectionDivider />
       <TimelineSection lang={params.lang} />
-      <SectionDivider/>
+      <SectionDivider />
       <SkillsSection lang={params.lang} />
-      <SectionDivider/>
+      <SectionDivider />
       <ContactSection lang={params.lang} />
     </main>
   );

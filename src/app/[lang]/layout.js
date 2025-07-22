@@ -4,7 +4,6 @@ import { Noto_Kufi_Arabic, Changa, El_Messiri, Anton } from 'next/font/google';
 import Header from '@/components/layout/Header';
 import TransitionWrapper from '@/components/layout/TransitionWrapper';
 import NavLinks from '@/components/layout/Navlinks';
-import CustomHead from '@/components/layout/CustomHead';
 import Footer from '@/components/layout/Footer';
 import { Toaster } from 'react-hot-toast';
 const arabicFont = Noto_Kufi_Arabic({
@@ -26,13 +25,36 @@ export const logoFont = Anton({
   variable: '--font-logo',
 });
 
+export const metadata = {
+  metadataBase: new URL('https://crafted-by-yassine.vercel.app'),
+  manifest: '/manifest.json',
+  icons: {
+    icon: '/favicon.ico',
+    shortcut: '/favicon-32x32.png',
+    apple: '/apple-touch-icon.png',
+  },
+  openGraph: {
+    siteName: 'Yassinov Portfolio',
+    images: [
+      {
+        url: '/preview.png',
+        width: 800,
+        height: 600,
+        alt: 'Yassinov.dev',
+      },
+    ],
+  },
+};
+export const viewport = {
+  themeColor: '#f5fbfc',
+};
+
 export default function LangLayout({ children, params }) {
   const isArabic = params.lang === 'ar';
 
   return (
     <html lang={params.lang} dir={isArabic ? 'rtl' : 'ltr'}>
       <body className={`${logoFont.variable} ${isArabic ? arabicFont.variable : englishFont.variable}`}>
-        <CustomHead lang={params.lang} />
         <TransitionWrapper />
         <Header lang={params.lang} />
         <div className="px-6 py-2 border-b bg-background text-text sticky top-[64px] z-40">
