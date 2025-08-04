@@ -15,6 +15,7 @@ export default function Header({ lang }) {
   const navLinks = [
     { href: `/${lang}/`, label: isAr ? 'الرئيسية' : 'Home' },
     { href: `/${lang}/projects`, label: isAr ? 'مشاريعي' : 'Projects' },
+    { href: `/${lang}/blog`, label: isAr ? 'سطوري' : 'Code Lines' },
     { href: `/${lang}/about`, label: isAr ? 'من أنا' : 'About' },
     { href: `/${lang}/contact`, label: isAr ? 'تواصل' : 'Contact' },
   ];

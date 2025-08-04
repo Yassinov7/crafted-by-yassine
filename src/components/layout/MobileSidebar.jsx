@@ -85,6 +85,7 @@ export default function MobileSidebar({ children, lang }) {
                 {[
                   { label: isAr ? 'الرئيسية' : 'Home', href: `/${lang}/` },
                   { label: isAr ? 'مشاريعي' : 'Projects', href: `/${lang}/projects` },
+                  { label: isAr ? 'سطوري' : 'Code Lines', href: `/${lang}/blog` },
                   { label: isAr ? 'من أنا' : 'About', href: `/${lang}/about` },
                   { label: isAr ? 'تواصل' : 'Contact', href: `/${lang}/contact` },
                 ].map((item) => (
