@@ -1,9 +1,10 @@
 import ContactIntroSection from '@/components/contact/ContactIntroSection';
 import ContactSectionForm from '@/components/contact/ContactSectionForm';
+import { use } from 'react';
 import SectionDivider from '@/components/layout/SectionDivider';
 
 export async function generateMetadata({ params }) {
-  const lang = params?.lang || 'en';
+    const { lang } = use(params) || 'en'; // استخدام React.use للوصول إلى params
   const isAr = lang === 'ar';
     return {
       title: isAr ? 'تواصل معي | ياسينوف' : 'Contact | Yassinov',
