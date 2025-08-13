@@ -25,6 +25,7 @@ export async function generateMetadata({ params }) {
 export default function ContactPage({ params }) {
   const { lang } = params;
   
+  
 
   return (
     <>
