@@ -53,7 +53,7 @@
 ## ⚙️ Run Locally
 
 ```bash
-git clone https://github.com/Yassinov7/portfolio.git
+git clone https://github.com/Yassinov7/crafted-by-yassine.git
 cd portfolio
 npm install
 npm run dev
@@ -65,7 +65,7 @@ npm run dev
 
 ## 🌐 Live Demo
 
-👉 [yassinov.dev](https://yassinov.dev)
+👉 [yassinov.dev](https://crafted-by-yassine.vercel.app)
 
 ---
 
