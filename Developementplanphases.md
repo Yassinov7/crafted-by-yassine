@@ -3,7 +3,7 @@
 This document outlines the development plan for creating a comprehensive dashboard to manage projects, timeline items, and blog posts through CRUD operations with Supabase integration.
 
 ## Phase 1: Dashboard Structure & Navigation
-
+ss
 ### Goals
 - Create a unified dashboard layout
 - Implement navigation between different management sections
