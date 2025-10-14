@@ -38,10 +38,11 @@ export default function Technologies({ lang }) {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        className={clsx('text-2xl font-bold text-center mb-10 text-text', isAr ? 'rtl' : 'ltr')}
+        className={clsx('text-3xl sm:text-4xl font-bold text-center text-text mb-4', isAr ? 'rtl' : 'ltr')}
       >
         {title}
       </motion.h2>
+      <div className="w-20 h-1 mx-auto bg-accent rounded-full mb-6" />
 
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
         {technologies.map((tech, idx) => {

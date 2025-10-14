@@ -33,10 +33,12 @@ export default function ProjectsList({ lang }) {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        className={clsx('text-2xl font-bold text-center mb-12 text-text', isAr ? 'rtl' : 'ltr')}
+        className={clsx('text-3xl sm:text-4xl font-bold text-center text-text mb-4', isAr ? 'rtl' : 'ltr')}
       >
         {isAr ? 'المشاريع' : 'Projects'}
       </motion.h2>
+      <div className="w-20 h-1 mx-auto bg-accent rounded-full mb-6" />
+
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {projects.map((project, index) => (

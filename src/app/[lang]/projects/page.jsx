@@ -1,4 +1,4 @@
-import Intro from '@/components/projects/Intro';
+import IntroSection from '@/components/layout/IntroSection';
 import Technologies from '@/components/projects/Technologies';
 import ProjectsList from '@/components/projects/ProjectsList';
 import Extra from '@/components/projects/Extra';
@@ -7,39 +7,45 @@ import SectionDivider from '@/components/layout/SectionDivider';
 export async function generateMetadata({ params }) {
   const lang = params?.lang || 'en';
 
-    const isAr = lang === 'ar';
-    return {
-      title: isAr ? 'مشاريعي | ياسينوف' : 'Projects | Yassinov',
+  const isAr = lang === 'ar';
+  return {
+    title: isAr ? 'مشاريعي | ياسينوف' : 'Projects | Yassinov',
+    description: isAr
+      ? 'تعرّف على أعمالي البرمجية ومشاريعي باستخدام React، Next.js، و Supabase.'
+      : 'Browse my development projects using React, Next.js, and Supabase.',
+    openGraph: {
+      title: isAr ? 'مشاريع ياسينوف' : 'Yassinov Projects',
       description: isAr
-        ? 'تعرّف على أعمالي البرمجية ومشاريعي باستخدام React، Next.js، و Supabase.'
-        : 'Browse my development projects using React, Next.js, and Supabase.',
-      openGraph: {
-        title: isAr ? 'مشاريع ياسينوف' : 'Yassinov Projects',
-        description: isAr
-          ? 'قائمة بمشاريعي وتجاربي البرمجية عبر السنوات.'
-          : 'A showcase of my best coding projects and experience.',
-        url: 'https://crafted-by-yassine.vercel.app/projects',
-        images: [{ url: '/preview.png', width: 800, height: 600 }],
-        locale: isAr ? 'ar_AR' : 'en_US',
-        type: 'website',
-      },
-    };
-  }
+        ? 'قائمة بمشاريعي وتجاربي البرمجية عبر السنوات.'
+        : 'A showcase of my best coding projects and experience.',
+      url: 'https://crafted-by-yassine.vercel.app/projects',
+      images: [{ url: '/preview.png', width: 800, height: 600 }],
+      locale: isAr ? 'ar_AR' : 'en_US',
+      type: 'website',
+    },
+  };
+}
 
 
 export default function ProjectsPage({ params }) {
-  const { lang } = params;
-  
+  const isAr = params?.lang === 'ar';
+  const title = isAr ? 'أعمالي البرمجية' : 'My Development Work';
+  const description = isAr
+    ? 'كل مشروع أعمل عليه ينبض بالتفاصيل، السرعة، والوضوح. تصفح أعمالي واكتشف كيف تتحول الأفكار إلى تجارب.'
+    : 'Every project I create is built with intention: speed, clarity, and beauty. Explore my work and discover how ideas become experiences.';
+  const tagline = isAr
+    ? '✦ الجودة تبدأ من أول سطر كود ✦'
+    : '✦ Quality begins with the first line of code ✦';
 
   return (
     <main className="px-6 py-12 space-y-20 max-w-7xl mx-auto">
-      <Intro lang={lang} />
+      <IntroSection lang={params?.lang} title={title} description={description} tagline={tagline} />
       <SectionDivider />
-      <Technologies lang={lang} />
+      <Technologies lang={params?.lang} />
       <SectionDivider />
-      <ProjectsList lang={lang} />
+      <ProjectsList lang={params?.lang} />
       <SectionDivider />
-      <Extra lang={lang} />
+      <Extra lang={params?.lang} />
     </main>
   );
 }

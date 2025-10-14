@@ -2,16 +2,14 @@
 
 import { useState, useEffect } from 'react';
 import { supabase } from '@/lib/supabase';
-import { use } from 'react';
-import BlogTitleSection from '@/components/blog/BlogTitleSection';
+import IntroSection from '@/components/layout/IntroSection';
 import BlogSearchSection from '@/components/blog/BlogSearchSection';
 import BlogCategoriesSection from '@/components/blog/BlogCategoriesSection';
 import BlogListSection from '@/components/blog/BlogListSection';
 import BlogPaginationSection from '@/components/blog/BlogPaginationSection';
 
 export default function BlogPage({ params }) {
-    const { lang } = use(params); // استخدام React.use للوصول إلى params
-    const isAr = lang === 'ar';
+    const isAr = params?.lang === 'ar';
     const [posts, setPosts] = useState([]);
     const [filteredPosts, setFilteredPosts] = useState([]);
     const [categories, setCategories] = useState([]);
@@ -19,6 +17,14 @@ export default function BlogPage({ params }) {
     const [searchTerm, setSearchTerm] = useState('');
     const [currentPage, setCurrentPage] = useState(1);
     const postsPerPage = 6;
+
+    const title = isAr ? 'مدونتي' : 'My Blog';
+    const description = isAr
+        ? 'اكتشف مقالاتي حول البرمجة، التصميم، وأحدث التقنيات التي أشاركها لإلهامك.'
+        : 'Explore my articles on programming, design, and the latest tech trends to inspire you.';
+    const tagline = isAr
+        ? '✦ شارك معي في رحلتي المعرفية ✦'
+        : '✦ Join me on my knowledge journey ✦';
 
     // جلب البيانات من Supabase
     useEffect(() => {
@@ -47,7 +53,7 @@ export default function BlogPage({ params }) {
         let result = posts;
         if (searchTerm) {
             result = result.filter((post) =>
-                post.title[lang]?.toLowerCase().includes(searchTerm.toLowerCase())
+                post.title[params?.lang]?.toLowerCase().includes(searchTerm.toLowerCase())
             );
         }
         if (selectedCategory) {
@@ -55,7 +61,7 @@ export default function BlogPage({ params }) {
         }
         setFilteredPosts(result);
         setCurrentPage(1);
-    }, [searchTerm, selectedCategory, posts, lang]);
+    }, [searchTerm, selectedCategory, posts, params?.lang]);
 
     // حساب الصفحات
     const totalPages = Math.ceil(filteredPosts.length / postsPerPage);
@@ -65,22 +71,22 @@ export default function BlogPage({ params }) {
     );
 
     return (
-        <div>
-            <BlogTitleSection lang={lang} />
-            <BlogSearchSection lang={lang} onSearch={setSearchTerm} />
+        <main className="px-6 py-12 space-y-20 max-w-7xl mx-auto">
+            <IntroSection lang={params?.lang} title={title} description={description} tagline={tagline} />
+            <BlogSearchSection lang={params?.lang} onSearch={setSearchTerm} />
             <BlogCategoriesSection
-                lang={lang}
+                lang={params?.lang}
                 categories={categories}
                 selectedCategory={selectedCategory}
                 onCategorySelect={setSelectedCategory}
             />
-            <BlogListSection lang={lang} posts={paginatedPosts} />
+            <BlogListSection lang={params?.lang} posts={paginatedPosts} />
             <BlogPaginationSection
-                lang={lang}
+                lang={params?.lang}
                 currentPage={currentPage}
                 totalPages={totalPages}
                 onPageChange={setCurrentPage}
             />
-        </div>
+        </main>
     );
 }

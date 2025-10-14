@@ -14,46 +14,35 @@ export async function generateMetadata({ params }) {
     title: isAr ? 'الصفحة الرئيسية | ياسينوف' : 'Home | Yassinov',
     description: isAr
       ? 'الصفحة الرئيسية للموقع الشخصي الخاص ب م.محمد ياسين'
-      : 'Homepage of Eng. Mohammad Yassine’s portfolio',
+      : "Homepage of Eng. Mohammad Yassine's portfolio",
     openGraph: {
-      title: isAr ? 'بورتفوليو محمد ياسين' : 'Mohammad Yassine Portfolio',
+    title: isAr ? 'بورتفوليو محمد ياسين' : 'Mohammad Yassine Portfolio',
       description: isAr
         ? 'تعرف على مشاريعي ومهاراتي'
         : 'Explore my projects and skills',
-      url: 'https://crafted-by-yassine.vercel.app/',
-      images: [{ url: '/preview.png', width: 800, height: 600 }],
-      locale: isAr ? 'ar_AR' : 'en_US',
-      type: 'website',
+        url: 'https://crafted-by-yassine.vercel.app/',
+          images: [{ url: '/preview.png', width: 800, height: 600 }],
+            locale: isAr ? 'ar_AR' : 'en_US',
+              type: 'website',
     },
-  };
+};
 }
 
 
-export default function Home({
-  params,
-}) {
+export default function Home({ params }) {
   return (
-    <main className="min-h-screen">
-      <HeroSection lang={params.lang} />
+    <main className="px-6 py-12 space-y-20 max-w-7xl mx-auto">
+      <HeroSection lang={params?.lang} />
       <SectionDivider />
-      <AboutSection lang={params.lang} />
+      <AboutSection lang={params?.lang} />
       <SectionDivider />
-      <ProjectsSection lang={params.lang} />
+      <ProjectsSection lang={params?.lang} />
       <SectionDivider />
-      <TimelineSection lang={params.lang} />
+      <TimelineSection lang={params?.lang} />
       <SectionDivider />
-      <SkillsSection lang={params.lang} />
+      <SkillsSection lang={params?.lang} />
       <SectionDivider />
-      <ContactSection lang={params.lang} />
+      <ContactSection lang={params?.lang} />
     </main>
   );
 }
-// /components
-//   └─ homepage/
-//       ├─ Hero.jsx
-//       ├─ AboutPreview.jsx
-//       ├─ ProjectsPreview.jsx
-//       ├─ Achievements.jsx
-//       ├─ LearningJourney.jsx
-//       ├─ Skills.jsx
-//       ├─ ContactForm.jsx

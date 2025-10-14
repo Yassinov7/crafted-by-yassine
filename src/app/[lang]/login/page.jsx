@@ -2,17 +2,23 @@
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { use } from 'react';
 import { supabase } from '@/lib/supabase';
-import FadeInSection from '@/components/motion/FadeInSection';
+import IntroSection from '@/components/layout/IntroSection';
 
 export default function LoginPage({ params }) {
-    const { lang } = use(params);
-    const isAr = lang === 'ar';
+    const isAr = params?.lang === 'ar';
     const router = useRouter();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState(null);
+
+    const title = isAr ? 'تسجيل الدخول' : 'Login';
+    const description = isAr
+        ? 'يرجى إدخال بيانات الاعتماد الخاصة بك للوصول إلى لوحة الإدارة'
+        : 'Please enter your credentials to access the admin panel';
+    const tagline = isAr
+        ? '✦ بوابة الوصول الآمن إلى لوحة التحكم ✦'
+        : '✦ Secure gateway to your admin dashboard ✦';
 
     const handleLogin = async (e) => {
         e.preventDefault();
@@ -26,21 +32,18 @@ export default function LoginPage({ params }) {
         if (error) {
             setError(isAr ? 'خطأ في البريد الإلكتروني أو كلمة المرور' : 'Invalid email or password');
         } else {
-            router.push(`/${lang}/admin`);
+            router.push(`/${params?.lang}/admin`);
         }
     };
 
     return (
-        <FadeInSection>
-            <section className="w-full px-6 py-24 max-w-5xl mx-auto scroll-mt-20 text-center">
-                <h1 className="text-4xl sm:text-5xl font-bold mb-4">
-                    {isAr ? 'تسجيل الدخول' : 'Login'}
-                </h1>
-                <div className="w-20 h-1 mx-auto bg-accent rounded-full mb-10" />
+        <div className="w-full px-6 py-12 max-w-7xl mx-auto space-y-10">
+            <IntroSection lang={params?.lang} title={title} description={description} tagline={tagline} />
 
+            <div className="max-w-md mx-auto">
                 <form
                     onSubmit={handleLogin}
-                    className={`max-w-md mx-auto space-y-4 ${isAr ? 'direction-rtl' : ''}`}
+                    className={`space-y-4 ${isAr ? 'direction-rtl' : ''}`}
                 >
                     <div>
                         <input
@@ -67,12 +70,12 @@ export default function LoginPage({ params }) {
                     )}
                     <button
                         type="submit"
-                        className="px-6 py-2 bg-accent text-background rounded-full font-medium hover:bg-accent/80 transition"
+                        className="w-full px-6 py-2 bg-accent text-background rounded-full font-medium hover:bg-accent/80 transition"
                     >
                         {isAr ? 'تسجيل الدخول' : 'Sign In'}
                     </button>
                 </form>
-            </section>
-        </FadeInSection>
+            </div>
+        </div>
     );
 }
