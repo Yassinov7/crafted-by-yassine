@@ -93,11 +93,11 @@ export default function Header({ lang }) {
   );
 }
 
-function Star() {
-  return (
-    <polygon
-      points="5,0 6.5,3.5 10,4 7,6.5 8,10 5,8 2,10 3,6.5 0,4 3.5,3.5"
-      fill="#D72828"
-    />
-  );
-}
+// function Star() {
+//   return (
+//     <polygon
+//       points="5,0 6.5,3.5 10,4 7,6.5 8,10 5,8 2,10 3,6.5 0,4 3.5,3.5"
+//       fill="#D72828"
+//     />
+//   );
+// }

@@ -13,6 +13,7 @@ export default function NavLinks({ lang }) {
   const sections = (() => {
     if (pathname?.includes('/projects')) {
       return [
+        { id: 'intro', label: lang === 'ar' ? '#' : '#' },
         { id: 'tech', label: lang === 'ar' ? 'التقنيات' : 'Technologies' },
         { id: 'projects', label: lang === 'ar' ? 'المشاريع' : 'Projects' },
         { id: 'extra', label: lang === 'ar' ? 'فلسفتي الخاصة' : 'My Philosophy' },
@@ -21,13 +22,13 @@ export default function NavLinks({ lang }) {
 
     if (pathname?.includes('/blog')) {
       return [
-        { id: 'articles', label: lang === 'ar' ? 'مقالات' : 'Articles' },
-        { id: 'tags', label: lang === 'ar' ? 'وسوم' : 'Tags' },
+        { id: 'intro', label: lang === 'ar' ? '#' : '#' },
+        { id: 'posts', label: lang === 'ar' ? 'مقالات' : 'Posts' },
       ];
     }
     if (pathname?.includes('/about')) {
       return [
-        { id: 'title', label: lang === 'ar' ? 'مقدمة' : 'Introduction' },
+        { id: 'intro', label: lang === 'ar' ? '#' : '#' },
         { id: 'timeline', label: lang === 'ar' ? 'رحلتي' : 'My Story' },
         { id: 'cert', label: lang === 'ar' ? 'شهاداتي' : 'Certifications' },
         { id: 'goal', label: lang === 'ar' ? 'رؤيتي' : 'My Vision' },
@@ -35,16 +36,16 @@ export default function NavLinks({ lang }) {
     }
     if (pathname?.includes('/contact')) {
       return [
-        { id: 'contact-intro', label: lang === 'ar' ? '#' : '#' },
+        { id: 'intro', label: lang === 'ar' ? '#' : '#' },
         { id: 'contact-form', label: lang === 'ar' ? 'التواصل' : 'Contact' },
-        
+
       ];
     }
 
     // الصفحة الرئيسية
     return [
       { id: 'hero', label: lang === 'ar' ? '#' : '#' },
-      { id: 'about', label: lang === 'ar' ? 'من أنا؟ ': 'Who Am I?' },
+      { id: 'about', label: lang === 'ar' ? 'من أنا؟ ' : 'Who Am I?' },
       { id: 'projects', label: lang === 'ar' ? 'مشاريعي' : 'Projects' },
       { id: 'timeline', label: lang === 'ar' ? 'رحلتي' : 'Journey' },
       { id: 'skills', label: lang === 'ar' ? 'مهاراتي' : 'Skills' },

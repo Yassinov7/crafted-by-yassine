@@ -5,7 +5,7 @@ import Extra from '@/components/projects/Extra';
 import SectionDivider from '@/components/layout/SectionDivider';
 
 export async function generateMetadata({ params }) {
-  const lang = params?.lang || 'en';
+  const { lang } = await params;
 
   const isAr = lang === 'ar';
   return {
@@ -27,8 +27,9 @@ export async function generateMetadata({ params }) {
 }
 
 
-export default function ProjectsPage({ params }) {
-  const isAr = params?.lang === 'ar';
+export default async function ProjectsPage({ params }) {
+  const { lang } = await params;
+  const isAr = lang === 'ar';
   const title = isAr ? 'أعمالي البرمجية' : 'My Development Work';
   const description = isAr
     ? 'كل مشروع أعمل عليه ينبض بالتفاصيل، السرعة، والوضوح. تصفح أعمالي واكتشف كيف تتحول الأفكار إلى تجارب.'
@@ -39,13 +40,13 @@ export default function ProjectsPage({ params }) {
 
   return (
     <main className="px-6 py-12 space-y-20 max-w-7xl mx-auto">
-      <IntroSection lang={params?.lang} title={title} description={description} tagline={tagline} />
+      <IntroSection lang={lang} title={title} description={description} tagline={tagline} />
       <SectionDivider />
-      <Technologies lang={params?.lang} />
+      <Technologies lang={lang} />
       <SectionDivider />
-      <ProjectsList lang={params?.lang} />
+      <ProjectsList lang={lang} />
       <SectionDivider />
-      <Extra lang={params?.lang} />
+      <Extra lang={lang} />
     </main>
   );
 }

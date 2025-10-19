@@ -16,7 +16,7 @@ export default function BlogSearchSection({ lang, onSearch }) {
 
     return (
         <FadeInSection>
-            <section className="w-full px-6 py-8 max-w-5xl mx-auto">
+            <section className="w-full px-6 pt-14 max-w-5xl mx-auto">
                 <input
                     type="text"
                     placeholder={isAr ? 'ابحث في المقالات...' : 'Search articles...'}

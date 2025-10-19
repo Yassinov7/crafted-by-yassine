@@ -13,7 +13,7 @@
 - 🧩 Interactive animations with **Framer Motion**
 - 📁 Dynamic data from **Supabase**
 - 🖼️ Certificate gallery with modals
-- ✍️ Blog section using TipTap editor
+- ✍️ Blog section with professional features
 - 📬 Contact form powered by **EmailJS**
 - ⚙️ Optimized for SEO + Sitemap generation
 - 💡 Clean and modular code structure
@@ -46,7 +46,29 @@
 /about       → Bio, Journey, Certificates
 /contact     → Contact Form + Links
 /blog        → Posts (dynamic)
+/admin       → Blog Admin Panel (planned)
 ```
+
+---
+
+## ✍️ Blog Features
+
+The blog section includes:
+
+- **Professional Post Management** with categories and tags
+- **Like System** with IP-based deduplication
+- **View Counter** with daily unique visitor tracking
+- **Rich Content Editor** using Tiptap
+- **Responsive Design** for all devices
+- **SEO Optimized** post pages
+
+See [BLOGREADME.md](BLOGREADME.md) for detailed implementation.
+
+---
+
+## 📋 Admin Panel Roadmap
+
+See [adminplan.md](adminplan.md) for the complete development plan for the blog administration panel.
 
 ---
 
@@ -59,7 +81,7 @@ npm install
 npm run dev
 ```
 
-> ✅ You’ll need `.env.local` with your Supabase keys & EmailJS IDs.
+> ✅ You'll need `.env.local` with your Supabase keys & EmailJS IDs.
 
 ---
 
@@ -86,4 +108,4 @@ This project is open-source and available under the [MIT License](LICENSE).
 
 ## 💖 Crafted with passion by `@Yassinov`
 
-> _“Code is poetry – and this portfolio is my voice.”_
+> _"Code is poetry – and this portfolio is my voice."_

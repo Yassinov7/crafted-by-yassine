@@ -2,45 +2,7 @@
 
 import FadeInSection from '@/components/motion/FadeInSection';
 import ProjectCard from '@/components/projects/ProjectCard';
-
-const projects = [
-  {
-    title: {
-      ar: 'ستلايت الرجاء',
-      en: 'Satellite Al-Rajaa',
-    },
-    description: {
-      ar: 'منصة لعرض الخدمات والعروض في الكويت بواجهة أنيقة وسريعة.',
-      en: 'A platform to showcase services and offers in Kuwait with a fast, elegant UI.',
-    },
-    link: 'https://satellitealrajaa.com',
-    stack: ['Next.js', 'Supabase', 'Tailwind'],
-  },
-  {
-    title: {
-      ar: 'UniRide',
-      en: 'UniRide',
-    },
-    description: {
-      ar: 'نظام لتنظيم تنقل الطلاب بين الجامعات والمناطق، مع إدارة المشرفين.',
-      en: 'A system for managing university ride-sharing for students and supervisors.',
-    },
-    slug: 'uniride', // links to /projects/uniride
-    stack: ['React', 'Supabase', 'Zustand'],
-  },
-  {
-    title: {
-      ar: 'EduConnect',
-      en: 'EduConnect',
-    },
-    description: {
-      ar: 'منصة تعليمية تفاعلية باستخدام React و Supabase، مشروع تخرجي.',
-      en: 'Interactive learning platform built with React and Supabase – my graduation project.',
-    },
-    slug: 'educonnect',
-    stack: ['React', 'Supabase', 'Tiptap'],
-  },
-];
+import projects from '@/lib/projects';
 
 export default function ProjectsSection({ lang }) {
   const isAr = lang === 'ar';

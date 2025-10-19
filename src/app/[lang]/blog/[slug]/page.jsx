@@ -4,105 +4,197 @@ import { useState, useEffect } from 'react';
 import { use } from 'react';
 import { supabase } from '@/lib/supabase';
 import Image from 'next/image';
-import { generateHTML } from '@tiptap/html';
-import StarterKit from '@tiptap/starter-kit';
-import ImageExtension from '@tiptap/extension-image';
-import Link from '@tiptap/extension-link';
 import FadeInSection from '@/components/motion/FadeInSection';
-import { FaHeart } from 'react-icons/fa';
+import MarkdownRenderer from '@/components/blog/MarkdownRenderer';
+import LikeButton from '@/components/blog/LikeButton';
+import ViewCounter from '@/components/blog/ViewCounter';
+import TagChip from '@/components/blog/TagChip';
+import Skeleton from '@/components/ui/Skeleton';
+import { Eye, Calendar } from 'lucide-react';
+import { format } from 'date-fns';
+import { ar, enUS } from 'date-fns/locale';
 
 export default function BlogPostPage({ params }) {
-    const { lang, slug } = use(params); // استخدام React.use للوصول إلى params
+    const { lang, slug } = use(params);
     const isAr = lang === 'ar';
     const [post, setPost] = useState(null);
-    const [likes, setLikes] = useState(0);
+    const [tags, setTags] = useState([]);
 
     // جلب المقال
     useEffect(() => {
         const fetchPost = async () => {
-            const { data, error } = await supabase
+            // Fetch post with category
+            const { data: postData, error: postError } = await supabase
                 .from('posts')
-                .select('*')
+                .select(`
+          *,
+          category:categories(name)
+        `)
                 .eq('slug', slug)
                 .single();
-            if (error) {
-                console.error('خطأ في جلب المقال:', error);
+
+            if (postError) {
+                console.error('خطأ في جلب المقال:', postError);
                 return;
             }
-            setPost(data);
-            setLikes(data.likes || 0);
-        };
-        fetchPost();
-    }, [slug]);
 
-    // التعامل مع الإعجاب
-    const handleLike = async () => {
-        const newLikes = likes + 1;
-        const { error } = await supabase
-            .from('posts')
-            .update({ likes: newLikes })
-            .eq('slug', slug);
-        if (error) {
-            console.error('خطأ في تحديث الإعجابات:', error);
-        } else {
-            setLikes(newLikes);
+            setPost(postData);
+
+            // Fetch tags for this post
+            const { data: tagsData, error: tagsError } = await supabase
+                .from('tags')
+                .select('tags.*')
+                .eq('post_tags.post_id', postData.id)
+                .join('post_tags', 'tags.id', 'post_tags.tag_id');
+
+            if (!tagsError) {
+                setTags(tagsData);
+            }
+        };
+
+        if (slug) {
+            fetchPost();
         }
-    };
+    }, [slug]);
 
     if (!post) {
         return (
-            <div className="max-w-4xl mx-auto p-6 text-center">
-                <p>{isAr ? 'جارٍ التحميل...' : 'Loading...'}</p>
+            <div className="max-w-4xl mx-auto p-6">
+                {/* Loading skeleton */}
+                <div className="space-y-8">
+                    {/* Cover image skeleton */}
+                    <Skeleton className="w-full h-64 md:h-96 rounded-2xl" />
+
+                    {/* Title skeleton */}
+                    <div className="space-y-4">
+                        <Skeleton className="h-8 w-3/4" />
+                        <Skeleton className="h-8 w-1/2" />
+
+                        {/* Meta info skeleton */}
+                        <div className="flex flex-wrap items-center gap-4 py-4">
+                            <Skeleton className="h-6 w-24 rounded-full" />
+                            <Skeleton className="h-6 w-32 rounded-full" />
+                            <Skeleton className="h-6 w-28 rounded-full" />
+                        </div>
+
+                        {/* Tags skeleton */}
+                        <div className="flex flex-wrap gap-2 py-2">
+                            <Skeleton className="h-6 w-16 rounded-full" />
+                            <Skeleton className="h-6 w-20 rounded-full" />
+                            <Skeleton className="h-6 w-24 rounded-full" />
+                        </div>
+                    </div>
+
+                    {/* Content skeleton */}
+                    <div className="space-y-4">
+                        <Skeleton className="h-4 w-full" />
+                        <Skeleton className="h-4 w-5/6" />
+                        <Skeleton className="h-4 w-4/6" />
+                        <Skeleton className="h-4 w-5/6" />
+                        <Skeleton className="h-4 w-full" />
+                        <Skeleton className="h-4 w-3/6" />
+                        <Skeleton className="h-4 w-4/6" />
+                        <Skeleton className="h-4 w-5/6" />
+                        <Skeleton className="h-4 w-full" />
+                        <Skeleton className="h-4 w-2/6" />
+                    </div>
+
+                    {/* Actions skeleton */}
+                    <div className="flex flex-wrap items-center justify-between gap-4 pt-6 border-t border-muted">
+                        <Skeleton className="h-10 w-32 rounded-full" />
+                        <Skeleton className="h-6 w-24 rounded" />
+                    </div>
+                </div>
             </div>
         );
     }
 
-    const htmlContent = generateHTML(post.content[lang], [
-        StarterKit,
-        ImageExtension,
-        Link,
-    ]);
+    const handleLike = () => {
+        // Refresh the post data to get updated likes count
+        const fetchUpdatedPost = async () => {
+            const { data, error } = await supabase
+                .from('posts')
+                .select('*')
+                .eq('id', post.id)
+                .single();
+
+            if (!error) {
+                setPost(data);
+            }
+        };
+
+        fetchUpdatedPost();
+    };
+
+    const formatDate = (date) => {
+        try {
+            const dateObj = new Date(date);
+            return format(dateObj, 'PPP', { locale: isAr ? ar : enUS });
+        } catch (error) {
+            return date;
+        }
+    };
 
     return (
-        <div className={`max-w-4xl mx-auto p-6 ${isAr ? 'direction-rtl' : ''}`}>
+        <article className={`max-w-4xl mx-auto p-6 ${isAr ? 'direction-rtl' : ''}`}>
             <FadeInSection>
                 {post.cover_image && (
-                    <div className="relative w-full h-64 mb-6">
+                    <div className="relative w-full h-64 md:h-96 mb-6 rounded-2xl overflow-hidden">
                         <Image
                             src={post.cover_image}
-                            alt={post.title[lang]}
+                            alt={post.title}
                             fill
-                            className="object-cover rounded-2xl"
+                            className="object-cover"
                         />
                     </div>
                 )}
-                <h1 className="text-3xl font-bold text-accent mb-4">
-                    {post.title[lang]}
-                </h1>
-                <div className="flex flex-wrap gap-2 mb-4">
-                    {post.categories?.map((category) => (
-                        <span
-                            key={category}
-                            className="text-xs bg-accent text-background px-2 py-1 rounded-full"
-                        >
-                            {category}
-                        </span>
-                    ))}
+
+                <div className="mb-6">
+                    <h1 className="text-3xl md:text-4xl font-bold text-accent mb-4">
+                        {post.title}
+                    </h1>
+
+                    <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground mb-6">
+                        {post.category && (
+                            <span className="bg-accent/20 text-accent px-2 py-1 rounded-full">
+                                {post.category.name}
+                            </span>
+                        )}
+
+                        <div className="flex items-center gap-1">
+                            <Calendar className="w-4 h-4" />
+                            <span>{formatDate(post.published_at || post.created_at)}</span>
+                        </div>
+
+                        <div className="flex items-center gap-1">
+                            <Eye className="w-4 h-4" />
+                            <span>{post.views_count || 0} views</span>
+                        </div>
+                    </div>
+
+                    <div className="flex flex-wrap gap-2 mb-6">
+                        {tags.map((tag) => (
+                            <TagChip key={tag.id} tag={tag} />
+                        ))}
+                    </div>
                 </div>
-                <div
-                    className="prose prose-lg mb-6"
-                    dangerouslySetInnerHTML={{ __html: htmlContent }}
-                />
-                <div className="flex items-center gap-4">
-                    <button
-                        onClick={handleLike}
-                        className="flex items-center gap-2 px-4 py-2 bg-accent text-background rounded-full hover:bg-accent/80 transition"
-                    >
-                        <FaHeart className="text-red-500" />
-                        {isAr ? `${likes} إعجابات` : `${likes} Likes`}
-                    </button>
+
+                <div className="prose prose-lg max-w-none mb-8">
+                    <MarkdownRenderer content={post.content} />
+                </div>
+
+                <div className="flex flex-wrap items-center justify-between gap-4 pt-6 border-t border-muted">
+                    <LikeButton
+                        postId={post.id}
+                        initialLikes={post.likes_count || 0}
+                        onLike={handleLike}
+                    />
+                    <ViewCounter
+                        postId={post.id}
+                        initialViews={post.views_count || 0}
+                    />
                 </div>
             </FadeInSection>
-        </div>
+        </article>
     );
 }
