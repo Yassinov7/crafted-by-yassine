@@ -33,37 +33,37 @@ export default function HeroSection({ lang }) {
               </div>
               
               <div className="flex flex-col sm:flex-row justify-center lg:justify-start gap-3 md:gap-4 flex-wrap mt-6">
-                <Button 
-                  as="a" 
-                  href="#projects" 
-                  className="flex items-center gap-2 w-full sm:w-auto justify-center"
-                  size="lg"
-                >
-                  {isAr ? 'شاهد مشاريعي' : 'View Projects'}
-                  <ArrowRight size={18} className="flex items-center gap-2 w-full sm:w-auto justify-center" />
-                </Button>
-                <Button 
-                  as="a" 
-                  href="#contact" 
-                  variant="outline" 
-                  className="flex items-center gap-2 w-full sm:w-auto justify-center"
-                  size="lg"
-                >
-                  {isAr ? 'تواصل معي' : 'Contact Me'}
-                  <Mail size={18} className="flex items-center gap-2 w-full sm:w-auto justify-center" />
-                </Button>
-                <Button 
-                  as="a" 
-                  href="/MY-CV.pdf" 
-                  download 
-                  variant="outline" 
-                  className="flex items-center gap-2 w-full sm:w-auto justify-center"
-                  size="lg"
-                >
-                  {isAr ? 'تحميل السيرة الذاتية' : 'Download CV'}
-                  <Download size={18} className="flex items-center gap-2 w-full sm:w-auto justify-center" />
-                </Button>
-              </div>
+  <Button 
+    as="a" 
+    href="#projects" 
+    className="flex items-center gap-2 justify-center px-6"
+    size="lg"
+  >
+    {isAr ? 'شاهد مشاريعي' : 'View Projects'}
+    <ArrowRight size={20} className={isAr ? "rotate-180" : ""} />
+  </Button>
+  <Button 
+    as="a" 
+    href="#contact" 
+    variant="outline" 
+    className="flex items-center gap-2 justify-center px-6"
+    size="lg"
+  >
+    {isAr ? 'تواصل معي' : 'Contact Me'}
+    <Mail size={20} />
+  </Button>
+  <Button 
+    as="a" 
+    href="/MY-CV.pdf" 
+    download 
+    variant="outline" 
+    className="flex items-center gap-2 justify-center px-6"
+    size="lg"
+  >
+    {isAr ? 'تحميل السيرة الذاتية' : 'Download CV'}
+    <Download size={20} />
+  </Button>
+</div>
             </div>
 
             {/* Avatar Section with enhanced design */}
@@ -85,15 +85,15 @@ export default function HeroSection({ lang }) {
                 </div>
 
                 {/* Floating tech elements - hidden on mobile, visible on tablet and up */}
-                <div className="absolute -top-2 -right-2 sm:-top-3 sm:-right-3 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-accent flex items-center justify-center shadow-lg hidden sm:flex">
-                  <div className="w-2 h-2 sm:w-3 sm:h-3 rounded-full bg-white animate-ping"></div>
-                </div>
-                
-                <div className="absolute -bottom-2 -left-2 sm:-bottom-3 sm:-left-3 w-16 h-16 sm:w-18 sm:h-18 rounded-full bg-accent flex items-center justify-center shadow-lg hidden sm:flex">
-                  <div className="text-background font-bold text-xs text-center px-1">
-                    {isAr ? 'مهندس برمجيات' : 'Software Engineer'}
-                  </div>
-                </div>
+                <div className="absolute -top-2 -right-2 sm:-top-3 sm:-right-3 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-accent flex items-center justify-center shadow-lg">
+  <div className="w-2 h-2 sm:w-3 sm:h-3 rounded-full bg-white animate-ping"></div>
+</div>
+
+<div className="absolute -bottom-2 -left-2 sm:-bottom-3 sm:-left-3 w-16 h-16 sm:w-18 sm:h-18 rounded-full bg-accent flex items-center justify-center shadow-lg">
+  <div className="text-background font-bold text-xs text-center px-1">
+    {isAr ? 'مهندس برمجيات' : 'Software Engineer'}
+  </div>
+</div>
               </div>
             </div>
           </div>
