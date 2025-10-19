@@ -22,7 +22,7 @@ export default function HeroSection({ lang }) {
             <div className="flex-1 text-center lg:text-left space-y-6 md:space-y-8 z-10 order-2 lg:order-1">
               <div className="space-y-4 md:space-y-6">
                 <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight tracking-tight">
-                  {isAr ? 'مرحبًا، أنا محمد' : "Hi, I'm Mohammed"}
+                  {isAr ? 'مرحبًا، أنا محمد' : "Hi, I'm Mohammad"}
                 </h1>
                 <p className="text-lg sm:text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto lg:mx-0 leading-relaxed">
                   {isAr 
@@ -40,7 +40,7 @@ export default function HeroSection({ lang }) {
     size="lg"
   >
     {isAr ? 'شاهد مشاريعي' : 'View Projects'}
-    <ArrowRight size={20} className={isAr ? "rotate-180" : ""} />
+    <ArrowRight size={20} className={isAr ? "rotate-180 flex items-center gap-2 justify-center px-6" : "flex items-center gap-2 justify-center px-6"} />
   </Button>
   <Button 
     as="a" 
@@ -50,7 +50,7 @@ export default function HeroSection({ lang }) {
     size="lg"
   >
     {isAr ? 'تواصل معي' : 'Contact Me'}
-    <Mail size={20} />
+    <Mail size={20} className="flex items-center gap-2 justify-center px-6/>
   </Button>
   <Button 
     as="a" 
@@ -61,7 +61,7 @@ export default function HeroSection({ lang }) {
     size="lg"
   >
     {isAr ? 'تحميل السيرة الذاتية' : 'Download CV'}
-    <Download size={20} />
+    <Download size={20} className="flex items-center gap-2 justify-center px-6/>
   </Button>
 </div>
             </div>
