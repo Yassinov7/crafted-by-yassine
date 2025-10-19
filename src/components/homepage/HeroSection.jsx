@@ -73,7 +73,7 @@ export default function HeroSection({ lang }) {
                 <div className="absolute inset-0 w-full h-full rounded-full border-2 border-accent/20 animate-pulse"></div>
                 
                 {/* Main avatar container with enhanced shadow */}
-                <div className="relative w-48 h-48 sm:w-56 sm:h-56 md:w-64 md:h-64 rounded-full overflow-hidden shadow-2xl border-4 border-white dark:border-background">
+                <div className="relative w-56 h-56 sm:w-64 sm:h-64 md:w-72 md:h-72 rounded-full overflow-hidden shadow-2xl border-4 border-white dark:border-background">
                   <Image 
                     src="/Mohammad-Yassine.jpg" 
                     alt="Mohammad Yassine Avatar" 
