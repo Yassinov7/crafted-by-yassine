@@ -40,7 +40,7 @@ export default function HeroSection({ lang }) {
                   size="lg"
                 >
                   {isAr ? 'شاهد مشاريعي' : 'View Projects'}
-                  <ArrowRight size={18} />
+                  <ArrowRight size={18} className="flex items-center gap-2 w-full sm:w-auto justify-center" />
                 </Button>
                 <Button 
                   as="a" 
@@ -50,7 +50,7 @@ export default function HeroSection({ lang }) {
                   size="lg"
                 >
                   {isAr ? 'تواصل معي' : 'Contact Me'}
-                  <Mail size={18} />
+                  <Mail size={18} className="flex items-center gap-2 w-full sm:w-auto justify-center" />
                 </Button>
                 <Button 
                   as="a" 
@@ -61,7 +61,7 @@ export default function HeroSection({ lang }) {
                   size="lg"
                 >
                   {isAr ? 'تحميل السيرة الذاتية' : 'Download CV'}
-                  <Download size={18} />
+                  <Download size={18} className="flex items-center gap-2 w-full sm:w-auto justify-center" />
                 </Button>
               </div>
             </div>
