@@ -50,7 +50,7 @@ export default function HeroSection({ lang }) {
     size="lg"
   >
     {isAr ? 'تواصل معي' : 'Contact Me'}
-    <Mail size={20} className="flex items-center gap-2 justify-center px-6/>
+    <Mail size={20} className="flex items-center gap-2 justify-center px-6" />
   </Button>
   <Button 
     as="a" 
@@ -61,7 +61,7 @@ export default function HeroSection({ lang }) {
     size="lg"
   >
     {isAr ? 'تحميل السيرة الذاتية' : 'Download CV'}
-    <Download size={20} className="flex items-center gap-2 justify-center px-6/>
+    <Download size={20} className="flex items-center gap-2 justify-center px-6" />
   </Button>
 </div>
             </div>
