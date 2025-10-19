@@ -11,7 +11,7 @@ export default function HeroSection({ lang }) {
 
   return (
     <FadeInSection>
-      <section className="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 py-12 md:py-20 relative overflow-hidden">
+      <section id="hero" className="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 py-12 md:py-20 relative overflow-hidden">
         {/* Background accent circles - repositioned for better balance */}
         <div className="absolute top-1/4 -left-10 w-72 h-72 bg-accent/10 rounded-full blur-3xl"></div>
         <div className="absolute bottom-1/4 -right-10 w-72 h-72 bg-accent/5 rounded-full blur-3xl"></div>
