@@ -94,9 +94,9 @@ npm run dev
 ## 📬 Contact
 
 - 📧 Email: `02m.yassine@gmail.com`
-- 💼 LinkedIn: [Mohammed Yassine](https://linkedin.com/in/mohammed-yassine-70499921a)
-- 📱 WhatsApp: [+963 935 787 445](https://wa.me/963935787445)
-- 🌐 Instagram: [@mhmmdyassine](https://instagram.com/mhmmdyassine)
+- 💼 LinkedIn: [Mohammed Yassine](https://linkedin.com/in/yassinov)
+- 📱 WhatsApp: [+963 935 787 445](https://wa.me/963998246359)
+- 🌐 Instagram: [@yassinov.dev](https://instagram.com/yassinov.dev)
 
 ---
 

@@ -13,9 +13,9 @@ export default function Footer({ lang }) {
 
   const social = [
     { href: 'https://github.com/Yassinov7', icon: <Github size={20} /> },
-    { href: 'https://www.linkedin.com/in/mohammed-yassine-70499921a', icon: <Linkedin size={20} /> },
+    { href: 'https://www.linkedin.com/in/yassinov', icon: <Linkedin size={20} /> },
     { href: 'mailto:02m.yassine@gmail.com', icon: <Mail size={20} /> },
-    { href: 'https://instagram.com/mhmmdyassine', icon: <Instagram size={20} /> },
+    { href: 'https://instagram.com/yassinov.dev', icon: <Instagram size={20} /> },
   ];
 
   return (

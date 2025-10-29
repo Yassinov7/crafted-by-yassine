@@ -45,7 +45,7 @@ export default function GoalSection({ lang }) {
                         <FaGithub />
                     </a>
                     <a
-                        href="https://www.linkedin.com/in/mohammed-yassine-70499921a"
+                        href="https://www.linkedin.com/in/yassinov"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="hover:opacity-80 hover:text-blue-500 transition transform  shadow-md"
@@ -53,7 +53,7 @@ export default function GoalSection({ lang }) {
                         <FaLinkedin />
                     </a>
                     <a
-                        href={`https://wa.me/963935787445?text=${encodeURIComponent(message)}`}
+                        href={`https://wa.me/963998246359?text=${encodeURIComponent(message)}`}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="hover:opacity-80 hover:text-green-500 transition transform  shadow-md"
@@ -61,7 +61,7 @@ export default function GoalSection({ lang }) {
                         <FaWhatsapp />
                     </a>
                     <a
-                        href="https://instagram.com/mhmmdyassine"
+                        href="https://instagram.com/yassinov.dev"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="hover:opacity-80 hover:text-[#E1306C] transition transform  shadow-md"

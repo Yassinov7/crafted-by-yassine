@@ -16,7 +16,7 @@ export async function generateMetadata({ params }) {
       ? 'الصفحة الرئيسية للموقع الشخصي الخاص ب م.محمد ياسين'
       : "Homepage of Eng. Mohammad Yassine's portfolio",
     openGraph: {
-    title: isAr ? 'بورتفوليو محمد ياسين' : 'Mohammad Yassine Portfolio',
+      title: isAr ? 'الموقع الشخصي الخاص بالمهندس محمد ياسين' : 'Engineer Mohammad Yassine Personal Portfolio',
       description: isAr
         ? 'تعرف على مشاريعي ومهاراتي'
         : 'Explore my projects and skills',

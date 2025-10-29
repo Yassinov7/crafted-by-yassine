@@ -18,7 +18,7 @@ export default function ContactSectionForm({ lang }) {
       >
         {/* العنوان */}
         <h2 className="text-3xl sm:text-4xl font-bold text-center mb-4">
-            {isAr ? 'نموذج التواصل' : 'Contact Form'}
+          {isAr ? 'نموذج التواصل' : 'Contact Form'}
         </h2>
         <div className="w-20 h-1 mx-auto bg-accent rounded-full mb-4" />
 
@@ -42,7 +42,7 @@ export default function ContactSectionForm({ lang }) {
               <FaGithub size={24} />
             </a>
             <a
-              href="https://www.linkedin.com/in/mohammed-yassine-70499921a"
+              href="https://www.linkedin.com/in/yassinov"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:scale-110 hover:text-blue-500 transition transform bg-accent p-2 rounded-full shadow-md"
@@ -50,7 +50,7 @@ export default function ContactSectionForm({ lang }) {
               <FaLinkedin size={24} />
             </a>
             <a
-              href={`https://wa.me/963935787445?text=${encodeURIComponent(message)}`}
+              href={`https://wa.me/963998246359?text=${encodeURIComponent(message)}`}
               target="_blank"
               rel="noopener noreferrer"
               className="hover:scale-110 hover:text-green-500 transition transform bg-accent p-2 rounded-full shadow-md"
@@ -58,7 +58,7 @@ export default function ContactSectionForm({ lang }) {
               <FaWhatsapp size={24} />
             </a>
             <a
-              href="https://instagram.com/mhmmdyassine"
+              href="https://instagram.com/yassinov.dev"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:scale-110 hover:text-[#E1306C] transition transform bg-accent p-2 rounded-full shadow-md"
