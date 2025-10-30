@@ -87,7 +87,7 @@ export default function BlogPage({ params }) {
     );
 
     return (
-        <main className="px-6 py-12 space-y-20 max-w-7xl mx-auto" id='posts'>
+        <main className="px-6 py-12 space-y-20 max-w-7xl mx-auto" id='#'>
             <IntroSection lang={params?.lang} title={title} description={description} tagline={tagline} />
             <SectionDivider />
 
@@ -108,7 +108,7 @@ export default function BlogPage({ params }) {
 
             {/* Posts Grid */}
             <FadeInSection>
-                <section className="w-full px-6 py-12 max-w-5xl mx-auto">
+                <section id='posts' className="w-full px-6 py-12 max-w-5xl mx-auto">
                     {paginatedPosts.length === 0 ? (
                         <div className="text-center py-12">
                             <p className="text-muted-foreground">

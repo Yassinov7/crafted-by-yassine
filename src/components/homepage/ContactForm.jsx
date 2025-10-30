@@ -45,9 +45,17 @@ export default function ContactForm({ lang }) {
       className="space-y-4 max-w-xl mx-auto bg-muted/10 p-6 rounded-xl
             shadow-[0_0_20px_4px_rgba(245,158,66,0.4)] backdrop-blur-sm"
     >
-      <h2 className="text-2xl sm:text-3xl font-bold text-center mb-18 text-accent">
+      <h2 className="text-2xl sm:text-3xl font-bold text-center mb-4 text-accent">
         {isAr ? 'نموذج التواصل' : 'Contact Form'}
       </h2>
+
+      {/* Response Time Note */}
+      <div className="text-center text-sm text-muted mb-4">
+        {isAr
+          ? 'عادة أرد خلال 24 ساعة في أيام الأسبوع'
+          : 'Typically respond within 24 hours on weekdays'}
+      </div>
+
       <input
         type="text"
         name="name"
@@ -88,6 +96,13 @@ export default function ContactForm({ lang }) {
           {isAr ? 'تم إرسال رسالتك بنجاح، يسعدني تواصلك معي.' : 'Message sent successfully, I am glad for your message.'}
         </p>
       )}
+
+      {/* Additional Contact Methods */}
+      <div className="text-center text-xs text-muted mt-4">
+        {isAr
+          ? 'أو تواصل معي مباشرة عبر واتساب للرد الفوري'
+          : 'Or contact me directly via WhatsApp for immediate response'}
+      </div>
     </form>
   );
 }

@@ -4,6 +4,7 @@ import ExperienceTimeline from '@/components/about/ExperienceTimeline';
 import SectionDivider from '@/components/layout/SectionDivider';
 import CertificatesSection from '@/components/about/CertificatesSection';
 import GoalSection from '@/components/about/GoalSection';
+import SkillsSection from '@/components/about/SkillsSection';
 
 export async function generateMetadata({ params }) {
   const lang = params?.lang || 'en';
@@ -46,6 +47,8 @@ export default function AboutPage({ params }) {
       <ExperienceTimeline lang={params?.lang} />
       <SectionDivider />
       <CertificatesSection lang={params?.lang} />
+      <SectionDivider />
+      <SkillsSection lang={params?.lang} />
       <SectionDivider />
       <GoalSection lang={params?.lang} />
     </main>

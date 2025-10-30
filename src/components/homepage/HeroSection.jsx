@@ -3,8 +3,7 @@
 import Button from '@/components/ui/Button';
 import FadeInSection from '@/components/motion/FadeInSection';
 import Image from 'next/image';
-import { ArrowRight, Mail, Download } from 'lucide-react';
-import { Star } from 'iconoir-react';
+import { ArrowBigRightDashIcon, Mail, Download } from 'lucide-react';
 
 export default function HeroSection({ lang }) {
   const isAr = lang === 'ar';
@@ -40,7 +39,7 @@ export default function HeroSection({ lang }) {
                   size="lg"
                 >
                   {isAr ? 'شاهد مشاريعي' : 'View Projects'}
-                  <ArrowRight size={20} className={isAr ? "rotate-180" : ""} />
+                  <ArrowBigRightDashIcon size={20} className={isAr ? "rotate-180" : ""} />
                 </Button>
                 <Button
                   as="a"

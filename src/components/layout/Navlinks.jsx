@@ -31,6 +31,7 @@ export default function NavLinks({ lang }) {
         { id: 'intro', label: lang === 'ar' ? '#' : '#' },
         { id: 'timeline', label: lang === 'ar' ? 'رحلتي' : 'My Story' },
         { id: 'cert', label: lang === 'ar' ? 'شهاداتي' : 'Certifications' },
+        { id: 'skills', label: lang === 'ar' ? 'المهارات' : 'Skills' },
         { id: 'goal', label: lang === 'ar' ? 'رؤيتي' : 'My Vision' },
       ];
     }
@@ -38,6 +39,7 @@ export default function NavLinks({ lang }) {
       return [
         { id: 'intro', label: lang === 'ar' ? '#' : '#' },
         { id: 'contact-form', label: lang === 'ar' ? 'التواصل' : 'Contact' },
+        { id: 'faq', label: lang === 'ar' ? 'اسألة شائعة' : 'FAQ' },
 
       ];
     }

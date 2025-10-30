@@ -1,6 +1,7 @@
 import IntroSection from '@/components/layout/IntroSection';
 import ContactSectionForm from '@/components/contact/ContactSectionForm';
 import SectionDivider from '@/components/layout/SectionDivider';
+import FaqSection from '@/components/contact/FaqSection';
 
 export async function generateMetadata({ params }) {
   const lang = params?.lang || 'en';
@@ -22,6 +23,7 @@ export async function generateMetadata({ params }) {
     },
   };
 }
+
 export default function ContactPage({ params }) {
   const isAr = params?.lang === 'ar';
   const title = isAr ? 'دعنا نبدأ الحديث' : 'Let’s Start the Conversation';
@@ -32,11 +34,14 @@ export default function ContactPage({ params }) {
     ? '✦ التواصل هو أول خطوة نحو التعاون الناجح ✦'
     : '✦ Communication is the first step toward successful collaboration ✦';
 
+
   return (
     <main className="px-6 py-12 space-y-20 max-w-7xl mx-auto">
       <IntroSection lang={params?.lang} title={title} description={description} tagline={tagline} />
       <SectionDivider />
       <ContactSectionForm lang={params?.lang} />
+      <SectionDivider />
+      <FaqSection lang={params?.lang} />
     </main>
   );
 }
