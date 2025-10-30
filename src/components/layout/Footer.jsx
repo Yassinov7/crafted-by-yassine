@@ -1,8 +1,12 @@
 import Link from 'next/link';
 import { Github, Linkedin, Mail, Instagram } from 'lucide-react';
+import { Facebook, Whatsapp } from 'iconoir-react';
 
 export default function Footer({ lang }) {
   const isAr = lang === 'ar';
+  const message = isAr
+    ? 'مرحبًا م. محمد ياسين، رأيت موقعك الشخصي وأرغب بالتواصل معك بشأن مشروع 🌟'
+    : 'Hi Eng. Mohammad Yassine, I visited your website and would like to discuss a project 🌟';
 
   const links = [
     { href: `/${lang}/`, label: isAr ? 'الرئيسية' : 'Home' },
@@ -15,6 +19,8 @@ export default function Footer({ lang }) {
     { href: 'https://github.com/Yassinov7', icon: <Github size={20} /> },
     { href: 'https://www.linkedin.com/in/yassinov', icon: <Linkedin size={20} /> },
     { href: 'mailto:02m.yassine@gmail.com', icon: <Mail size={20} /> },
+    { href: 'https://www.facebook.com/YASSINOVdev', icon: <Facebook size={20} /> },
+    { href: `https://wa.me/963998246359?text=${encodeURIComponent(message)}`, icon: <Whatsapp size={20} /> },
     { href: 'https://instagram.com/yassinov.dev', icon: <Instagram size={20} /> },
   ];
 

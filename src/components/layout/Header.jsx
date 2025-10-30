@@ -26,7 +26,7 @@ export default function Header({ lang }) {
         {/* Logo */}
         <Link href={`/${lang}`} className="flex items-center gap-2 group">
           <span
-            className="text-xl font-bold tracking-wide group-hover:text-accent transition-colors"
+            className="text-2xl font-bold tracking-wide text-accent group-hover:text-text transition-colors"
             style={{ fontFamily: 'font-logo' }}
           >
             Yassinov.dev

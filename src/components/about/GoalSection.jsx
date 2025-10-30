@@ -1,7 +1,7 @@
 'use client';
 
 import FadeInSection from '@/components/motion/FadeInSection';
-import { FaGithub, FaLinkedin, FaWhatsapp, FaInstagram } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaWhatsapp, FaInstagram, FaFacebook } from 'react-icons/fa';
 import Link from 'next/link';
 
 export default function GoalSection({ lang }) {
@@ -48,7 +48,7 @@ export default function GoalSection({ lang }) {
                         href="https://www.linkedin.com/in/yassinov"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="hover:opacity-80 hover:text-blue-500 transition transform  shadow-md"
+                        className="hover:opacity-80 hover:text-blue-600 transition transform  shadow-md"
                     >
                         <FaLinkedin />
                     </a>
@@ -59,6 +59,14 @@ export default function GoalSection({ lang }) {
                         className="hover:opacity-80 hover:text-green-500 transition transform  shadow-md"
                     >
                         <FaWhatsapp />
+                    </a>
+                    <a
+                        href="https://www.facebook.com/YASSINOVdev"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="hover:opacity-80 hover:text-blue-500 transition transform  shadow-md"
+                    >
+                        <FaFacebook />
                     </a>
                     <a
                         href="https://instagram.com/yassinov.dev"

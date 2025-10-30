@@ -58,13 +58,13 @@ export default function CertificateModal({ cert, isAr, onClose }) {
                     animate={{ scale: 1, y: 0 }}
                     exit={{ scale: 0.9, y: 50 }}
                     transition={{ type: 'spring', stiffness: 300, damping: 25 }}
-                    className="relative bg-background rounded-2xl shadow-2xl w-full max-w-4xl max-h-[90vh] overflow-hidden"
+                    className="relative bg-background  shadow-2xl w-full max-w-4xl max-h-[90vh] flex flex-col"
                 >
                     {/* Navigation Arrows */}
                     {currentIndex > 0 && (
                         <button
                             onClick={goToPrev}
-                            className={`absolute top-1/2 -translate-y-1/2 ${isAr ? 'right-4' : 'left-4'} text-text bg-muted hover:bg-muted-foreground rounded-full p-2 z-10 transition-all`}
+                            className={`absolute top-1/2 -translate-y-1/2 ${isAr ? 'right-4' : 'left-4'} text-text bg-muted hover:bg-muted-foreground rounded-full p-2 z-10 transition-all hidden md:block`}
                             aria-label={isAr ? "السابق" : "Previous"}
                         >
                             {isAr ? <ChevronRight className="w-6 h-6" /> : <ChevronLeft className="w-6 h-6" />}
@@ -74,7 +74,7 @@ export default function CertificateModal({ cert, isAr, onClose }) {
                     {currentIndex < certList.length - 1 && (
                         <button
                             onClick={goToNext}
-                            className={`absolute top-1/2 -translate-y-1/2 ${isAr ? 'left-4' : 'right-4'} text-text bg-muted hover:bg-muted-foreground rounded-full p-2 z-10 transition-all`}
+                            className={`absolute top-1/2 -translate-y-1/2 ${isAr ? 'left-4' : 'right-4'} text-text bg-muted hover:bg-muted-foreground rounded-full p-2 z-10 transition-all hidden md:block`}
                             aria-label={isAr ? "التالي" : "Next"}
                         >
                             {isAr ? <ChevronLeft className="w-6 h-6" /> : <ChevronRight className="w-6 h-6" />}
@@ -90,43 +90,67 @@ export default function CertificateModal({ cert, isAr, onClose }) {
                         <X className="w-5 h-5" />
                     </button>
 
-                    {/* Certificate Image */}
-                    <div className="relative w-full aspect-[4/3] max-h-[400px]">
-                        <Image
-                            src={currentCert.image}
-                            alt={currentCert.title}
-                            fill
-                            className="object-contain"
-                            sizes="(max-width: 768px) 100vw, 800px"
-                        />
+                    {/* Certificate Content - Scrollable Area */}
+                    <div className="overflow-y-auto flex-grow">
+                        {/* Certificate Image */}
+                        <div className="relative w-full aspect-[4/3] max-h-[400px]">
+                            <Image
+                                src={currentCert.image}
+                                alt={currentCert.title}
+                                fill
+                                className="object-contain"
+                                sizes="(max-width: 768px) 100vw, 800px"
+                            />
+                        </div>
+
+                        {/* Certificate Details */}
+                        <div className="p-6 text-text">
+                            <h2 className="text-2xl font-bold text-accent mb-2">{currentCert.title}</h2>
+                            <p className="text-muted mb-4 leading-relaxed">{currentCert.description}</p>
+
+                            {/* Skills Section */}
+                            {currentCert.skills && currentCert.skills.length > 0 && (
+                                <div className="mb-4">
+                                    <h3 className="font-semibold text-lg mb-2">{isAr ? 'المهارات المكتسبة:' : 'Skills Acquired:'}</h3>
+                                    <div className="flex flex-wrap gap-2">
+                                        {currentCert.skills.map((skill, index) => (
+                                            <span
+                                                key={index}
+                                                className="px-3 py-1 bg-accent/10 text-accent rounded-full text-sm"
+                                            >
+                                                {skill}
+                                            </span>
+                                        ))}
+                                    </div>
+                                </div>
+                            )}
+
+                            <div className="text-sm text-muted mt-4 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 border-t border-muted/30 pt-4">
+                                <span className="text-accent font-medium">{currentCert.date}</span>
+                                <span className="text-muted-foreground">{isAr ? `المصدر: ${currentCert.source}` : `By: ${currentCert.source}`}</span>
+                            </div>
+                        </div>
                     </div>
 
-                    {/* Certificate Details */}
-                    <div className="p-6 text-text">
-                        <h2 className="text-2xl font-bold text-accent mb-2">{currentCert.title}</h2>
-                        <p className="text-muted mb-4 leading-relaxed">{currentCert.description}</p>
+                    {/* Mobile Navigation Arrows */}
+                    <div className="flex justify-between p-4 md:hidden">
+                        <button
+                            onClick={goToPrev}
+                            disabled={currentIndex <= 0}
+                            className={`text-text bg-muted hover:bg-muted-foreground rounded-full p-2 transition-all ${currentIndex <= 0 ? 'opacity-50 cursor-not-allowed' : ''}`}
+                            aria-label={isAr ? "السابق" : "Previous"}
+                        >
+                            {isAr ? <ChevronRight className="w-6 h-6" /> : <ChevronLeft className="w-6 h-6" />}
+                        </button>
 
-                        {/* Skills Section */}
-                        {currentCert.skills && currentCert.skills.length > 0 && (
-                            <div className="mb-4">
-                                <h3 className="font-semibold text-lg mb-2">{isAr ? 'المهارات المكتسبة:' : 'Skills Acquired:'}</h3>
-                                <div className="flex flex-wrap gap-2">
-                                    {currentCert.skills.map((skill, index) => (
-                                        <span
-                                            key={index}
-                                            className="px-3 py-1 bg-accent/10 text-accent rounded-full text-sm"
-                                        >
-                                            {skill}
-                                        </span>
-                                    ))}
-                                </div>
-                            </div>
-                        )}
-
-                        <div className="text-sm text-muted mt-4 flex justify-between items-center border-t border-muted/30 pt-4">
-                            <span className="text-accent font-medium">{currentCert.date}</span>
-                            <span className="text-muted-foreground">{isAr ? `المصدر: ${currentCert.source}` : `By: ${currentCert.source}`}</span>
-                        </div>
+                        <button
+                            onClick={goToNext}
+                            disabled={currentIndex >= certList.length - 1}
+                            className={`text-text bg-muted hover:bg-muted-foreground rounded-full p-2 transition-all ${currentIndex >= certList.length - 1 ? 'opacity-50 cursor-not-allowed' : ''}`}
+                            aria-label={isAr ? "التالي" : "Next"}
+                        >
+                            {isAr ? <ChevronLeft className="w-6 h-6" /> : <ChevronRight className="w-6 h-6" />}
+                        </button>
                     </div>
                 </motion.div>
             </motion.div>

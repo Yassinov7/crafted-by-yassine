@@ -1,7 +1,7 @@
 'use client';
 
 import ContactForm from '@/components/homepage/ContactForm';
-import { FaGithub, FaWhatsapp, FaLinkedin, FaInstagram } from 'react-icons/fa';
+import { FaGithub, FaWhatsapp, FaLinkedin, FaInstagram, FaFacebook } from 'react-icons/fa';
 import FadeInSection from '@/components/motion/FadeInSection';
 
 export default function ContactSection({ lang }) {
@@ -44,7 +44,7 @@ export default function ContactSection({ lang }) {
               href="https://www.linkedin.com/in/yassinov"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:scale-110 hover:text-blue-500 transition transform bg-accent p-3 rounded-full shadow-md"
+              className="hover:scale-110 hover:text-blue-600 transition transform bg-accent p-3 rounded-full shadow-md"
             >
               <FaLinkedin size={30} />
             </a>
@@ -55,6 +55,14 @@ export default function ContactSection({ lang }) {
               className="hover:scale-110 hover:text-green-500 transition transform bg-accent p-3 rounded-full shadow-md"
             >
               <FaWhatsapp size={30} />
+            </a>
+            <a
+              href="https://www.facebook.com/YASSINOVdev"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:scale-110 hover:text-green-500 transition transform bg-accent p-3 rounded-full shadow-md"
+            >
+              <FaFacebook size={30} />
             </a>
             <a
               href="https://instagram.com/yassinov.dev"
