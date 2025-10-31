@@ -19,6 +19,14 @@ export default function NavLinks({ lang }) {
         { id: 'extra', label: lang === 'ar' ? 'فلسفتي الخاصة' : 'My Philosophy' },
       ];
     }
+    if (pathname?.includes('/services')) {
+      return [
+        { id: 'intro', label: lang === 'ar' ? '#' : '#' },
+        { id: 'services', label: lang === 'ar' ? 'خدماتي' : 'Services' },
+        { id: 'process', label: lang === 'ar' ? 'عمليّتي' : 'My Process' },
+        { id: 'cta', label: lang === 'ar' ? 'تواصل معي' : 'Contact' },
+      ];
+    }
 
     if (pathname?.includes('/blog')) {
       return [
